@@ -68,7 +68,8 @@ setTimeout(() => {
     faviconlink.type = 'image/x-icon';
     faviconlink.href = 'https://penguinpaint.pages.dev/icons/favicon.png';
     document.head.appendChild(faviconlink);
-    
+    document.title = "Penguin Paint - Addons";
+
     selectors.forEach(selector => {
         const element = document.querySelector(selector);
         if (element) {
