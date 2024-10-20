@@ -16,13 +16,13 @@ setTimeout(() => {
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: rgba(255, 255, 255);
+            background-color: #00c3ff);
             z-index: 99999999999999999999999999999;
         }
         #loadingImage {
             width: 100px;
             height: 100px;
-            background-color: #00c3ff;
+            background-color: #fff;
             mask: url('https://penguinmod-paint.pages.dev/loader.gif') no-repeat center / contain;
             -webkit-mask: url('https://penguinmod-paint.pages.dev/loader.gif') no-repeat center / contain;
             animation: skewAnimation 1.5s ease-in-out infinite;
@@ -34,7 +34,7 @@ setTimeout(() => {
         }
         h1 {
             margin-top: 20px;
-            color: black;
+            color: #fff;
             animation: titleAnimation 1.5s ease-in-out infinite;
         }
         @keyframes titleAnimation {
