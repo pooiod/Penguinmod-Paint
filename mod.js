@@ -35,7 +35,7 @@ function openPaint() {
         element.style.zIndex = '9999999999999999999999999999999999999999999';
         element.style.backgroundColor = 'black';
         element.style.borderBottomLeftRadius = '15px';
-        element.style.width = "20px";
+        element.style.width = "30px";
         element.style.height = element.style.width;
     }, 3000); 
 
