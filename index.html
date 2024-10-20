@@ -1,0 +1,14 @@
+<script>
+fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'))
+  .then(response => response.json())
+  .then(data => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data.contents, 'text/html');
+    const base = doc.createElement('base');
+    base.href = 'https://studio.penguinmod.com/';
+    doc.head.appendChild(base);
+    document.open();
+    document.write(doc.documentElement.outerHTML);
+    document.close();
+  });
+</script>
