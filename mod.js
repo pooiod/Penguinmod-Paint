@@ -1,6 +1,13 @@
 var newtitle = "Penguin Paint";
 document.title = newtitle;
 
+const faviconlink = document.createElement('link');
+faviconlink.rel = 'icon';
+faviconlink.type = 'image/x-icon';
+faviconlink.href = 'https://penguinpaint.pages.dev/icons/128.png';
+document.head.appendChild(faviconlink);
+
+
 function extrabuttons() { document.title = newtitle;
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
