@@ -28,7 +28,7 @@ function extrabuttons() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            overlay.style.backgroundColor = 'rgba(0, 195, 255, 0.5)';
             overlay.style.zIndex = '999';
             
             // Create modal
@@ -39,7 +39,7 @@ function extrabuttons() {
             modal.style.transform = 'translate(-50%, -50%)';
             modal.style.backgroundColor = '#fff';
             modal.style.padding = '30px';
-            modal.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+            modal.style.border = '4px solid hsla(0, 100%, 100%, 0.25)';
             modal.style.borderRadius = '10px';
             modal.style.zIndex = '1000';
             modal.style.width = '300px';
