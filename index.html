@@ -25,6 +25,18 @@
             text-align: center;
         }
 
+        #loadingImageContainer {
+            width: 120px; /* Adjust size as needed */
+            height: 120px; /* Adjust size as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid black; /* Black outline */
+            border-radius: 10px; /* Optional: rounded corners */
+            padding: 10px; /* Optional: space between outline and image */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+        }
+
         #loadingImage {
             width: 100px; /* Adjust size as needed */
             height: 100px; /* Adjust size as needed */
@@ -41,7 +53,9 @@
 </head>
 <body>
     <div id="loadingScreen">
-        <div id="loadingImage"></div>
+        <div id="loadingImageContainer">
+            <div id="loadingImage"></div>
+        </div>
         <h1>PenguinMod Paint</h1>
     </div>
 
@@ -53,7 +67,7 @@
             scriptElement.text = modScript;
             document.head.appendChild(scriptElement);
             
-            // return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
+            // (disabled for debug) return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
           })
           .then(response => response.json())
           .then(data => {
