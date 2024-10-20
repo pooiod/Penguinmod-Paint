@@ -6,7 +6,7 @@ document.title = document.title.split(" - ")[0] + newtitle;
 function extrabuttons() {
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
-    var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px;" class="settings_button_2ovv0"><b>Open addons</b></button>';
+    var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" class="settings_button_2ovv0"><b>Open addons</b></button>';
 
     if (targetElement) {
         targetElement.insertAdjacentHTML('afterend', buttonHTML);
@@ -16,7 +16,7 @@ function extrabuttons() {
             window.open("https://penguinmod-paint.pages.dev/addons");
         });
 
-        buttonHTML = '<button class="settings_button_2ovv0 buttonsize" style="background: #00c3ff; color: #fff; border: none; border-radius: 5px;"><b>Set canvas size</b></button>';
+        buttonHTML = '<button class="settings_button_2ovv0 buttonsize" style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;"><b>Set canvas size</b></button>';
         targetElement.insertAdjacentHTML('afterend', buttonHTML);
 
         button = document.querySelector('.buttonsize');
