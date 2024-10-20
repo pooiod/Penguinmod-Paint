@@ -16,7 +16,7 @@ setTimeout(() => {
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #00c3ff);
+            background-color: #00c3ff;
             z-index: 99999999999999999999999999999;
         }
         #loadingImage {
