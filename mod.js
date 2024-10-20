@@ -41,7 +41,7 @@ const waitForElement = (selector) => {
                 openPaint();
             }, 1000); 
         }
-    }, 100);
+    }, 900);
 };
 
 waitForElement('#react-tabs-2');
