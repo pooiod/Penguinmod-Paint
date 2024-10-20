@@ -77,7 +77,8 @@
           .then(modScript => {
 
             if (!modScript) {
-                alert("Failed to load addons mod script");
+                var error = "Failed to filter addons";
+                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>';
             }
 
             const scriptElement = document.createElement('script');
@@ -96,6 +97,9 @@
             document.open();
             document.write(doc.documentElement.outerHTML);
             document.close();
+          }).catch(function(){
+            var error = "Failed to load addons";
+            document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>';
           });
     </script>
 </body>

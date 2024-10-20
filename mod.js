@@ -223,7 +223,7 @@ window.setSize = function(width, height) {
     var random = "a" + Math.round(Math.random() * 999999);
     runWithScratch(`(function (Scratch) { "use strict";
         Scratch.vm.setStageSize(${width}, ${height})
-
+// super hacky fix
         class ${random} {
             constructor() {
             this.thing = 0;
