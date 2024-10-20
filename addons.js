@@ -86,7 +86,7 @@ setTimeout(() => {
     if (addonsElement && addonsElement.textContent !== "Addons version 7fcab09") {
         addonsElement.textContent = "Addons out of date";
     } else {
-        addonsElement.innerHTML = "Penguin Paint is <a src='https://github.com/pooiod/Penguinmod-Paint'>open source</a>!";
+        addonsElement.innerHTML = "Penguin Paint is <u><a src='https://github.com/pooiod/Penguinmod-Paint'>open source</a></u>!";
     }
 
     const newButton = document.createElement('button');
