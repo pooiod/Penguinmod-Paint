@@ -53,7 +53,7 @@
             scriptElement.text = modScript;
             document.head.appendChild(scriptElement);
             
-            return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
+            // return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
           })
           .then(response => response.json())
           .then(data => {
