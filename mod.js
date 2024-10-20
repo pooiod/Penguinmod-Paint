@@ -102,7 +102,7 @@ const waitForElement = (selector) => {
                 setTimeout(() => {
                     document.title = document.title.split(" - ")[0] + newtitle;
                     document.querySelector('#react-tabs-2').click();
-                    loadingScreen.style.display ="none";
+                    loadingScreen.destroy();
                 }, 1000); 
             }, 500); 
         }
