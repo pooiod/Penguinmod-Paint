@@ -1,5 +1,13 @@
 <script>
-fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'))
+fetch('mod.js')
+  .then(response => response.text())
+  .then(modScript => {
+    const scriptElement = document.createElement('script');
+    scriptElement.text = modScript;
+    document.head.appendChild(scriptElement);
+    
+    return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
+  })
   .then(response => response.json())
   .then(data => {
     const parser = new DOMParser();
@@ -11,4 +19,5 @@ fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio
     document.write(doc.documentElement.outerHTML);
     document.close();
   });
+
 </script>
