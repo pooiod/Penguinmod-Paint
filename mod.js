@@ -32,18 +32,23 @@ function extrabuttons() {
             overlay.style.zIndex = '999';
             
             // Create modal
+            const wrapper = document.createElement('div');
+            wrapper.style.position = 'absolute';
+            wrapper.style.top = '50%';
+            wrapper.style.left = '50%';
+            wrapper.style.transform = 'translate(-50%, -50%)';
+            wrapper.style.border = '4px solid rgba(255, 255, 255, 0.25)';
+            wrapper.style.borderRadius = '10px';
+            wrapper.style.padding = '10px'; // Add padding to separate modal from border
+            
             const modal = document.createElement('div');
-            modal.style.position = 'absolute';
-            modal.style.top = '50%';
-            modal.style.left = '50%';
-            modal.style.transform = 'translate(-50%, -50%)';
             modal.style.backgroundColor = '#fff';
             modal.style.padding = '30px';
-            modal.style.border = '4px solid hsla(0, 100%, 100%, 0.25)';
             modal.style.borderRadius = '10px';
-            modal.style.zIndex = '1000';
             modal.style.width = '300px';
             modal.style.textAlign = 'center';
+            
+            wrapper.appendChild(modal);
             
             const title = document.createElement('h2');
             title.textContent = 'Select Canvas Size';
@@ -113,7 +118,7 @@ function extrabuttons() {
             buttonContainer.appendChild(cancelButton);
 
             modal.appendChild(buttonContainer);
-            overlay.appendChild(modal);
+            overlay.appendChild(wrapper);
             document.body.appendChild(overlay);
 
             // Event listeners for buttons
