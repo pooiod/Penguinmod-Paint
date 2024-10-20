@@ -1,7 +1,42 @@
 var newtitle = " Paint";
 document.title = document.title.split(" - ")[0] + newtitle;
 
-// Fun fact: if you load this into Turbowarp, it will still work!
+// Fun fact: if you load this into Turbowarp, it will mostly still work!
+
+const originalReplaceState = history.replaceState;
+history.replaceState = function(state, title, url) {
+    extrabuttons();
+    try {
+        var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
+        img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
+        img.style.filter = "invert(1)";
+    } catch(err) {
+        console.warn("unable to set image src for button");
+    }
+};
+
+function extrabuttons() {
+    var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
+
+    var buttonHTML = '<button class="settings_button_2ovv0">Open addons</button>';
+
+    if (targetElement) {
+        targetElement.insertAdjacentHTML('afterend', buttonHTML);
+
+        var button = document.querySelector('.settings_button_2ovv0');
+        button.addEventListener('click', function() {
+            window.open("https://penguinmod-paint.pages.dev/addons");
+        });
+
+        buttonHTML = '<button class="settings_button_2ovv0 buttonsize">Set canvas size</button>';
+        targetElement.insertAdjacentHTML('afterend', buttonHTML);
+
+        button = document.querySelector('.buttonsize');
+        button.addEventListener('click', function() {
+            setSize(100,100)
+        });
+    }
+}
 
 function openPaint() {
     if (document.title.split(" - ")[1]) {
@@ -15,26 +50,7 @@ function openPaint() {
             document.title = document.title.split(" - ")[0] + newtitle;
         }
 
-        var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
-
-        var buttonHTML = '<button class="settings_button_2ovv0">Open addons</button>';
-
-        if (targetElement) {
-            targetElement.insertAdjacentHTML('afterend', buttonHTML);
-
-            var button = document.querySelector('.settings_button_2ovv0');
-            button.addEventListener('click', function() {
-                window.open("https://penguinmod-paint.pages.dev/addons");
-            });
-
-            buttonHTML = '<button class="settings_button_2ovv0 buttonsize">Set canvas size</button>';
-            targetElement.insertAdjacentHTML('afterend', buttonHTML);
-
-            button = document.querySelector('.buttonsize');
-            button.addEventListener('click', function() {
-                setSize(100,100)
-            });
-        }
+        extrabuttons();
 
         var element = document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_menu-bar-position_3U1T0.menu-bar_menu-bar_JcuHF.box_box_2jjDp');
         element.style.position = 'fixed';
