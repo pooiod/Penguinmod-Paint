@@ -98,7 +98,7 @@ const waitForElement = (selector) => {
                 setTimeout(() => {
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.style.display ="none";
-                }, 500); 
+                }, 1000); 
             }, 500); 
         }
     }, 900);
