@@ -77,8 +77,9 @@
           .then(modScript => {
 
             if (!modScript || true) {
+                var error = "Failed to load modifier injection script";
                 modScript = `setTimeout(() => {
-                    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#00c3ff;font-size:24px;color:white;">Failed to load mod script</div>';
+                    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#00c3ff;font-size:24px;color:white;">${error}</div>';
                 }, 500);`;
             }
 
