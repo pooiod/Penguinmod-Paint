@@ -78,7 +78,9 @@
 
             if (!modScript) {
                 var error = "Failed to filter addons";
-                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>';
+                modScript = `setTimeout(() => {
+                    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>';
+                }, 500);`;
             }
 
             const scriptElement = document.createElement('script');
@@ -99,7 +101,7 @@
             document.close();
           }).catch(function(){
             var error = "Failed to load addons";
-            document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>';
+            document.body.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>`;
           });
     </script>
 </body>
