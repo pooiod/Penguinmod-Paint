@@ -56,6 +56,7 @@ var selectors = [
 ];
 
 setTimeout(() => {
+    document.title = "Penguin Paint - Addons";
     selectors.forEach(selector => {
         const element = document.querySelector(selector);
         if (element) {
