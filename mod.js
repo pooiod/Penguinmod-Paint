@@ -74,6 +74,42 @@ function openPaint() {
     img.style.filter = "invert(1)";
 }
 
+function runWithScratch(js) {
+    document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span').click();
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_type-selector-container_2Fag3 > div:nth-child(3)').click();
+
+    let input = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > textarea');
+
+    let lastValue = input.value;
+
+    input.value = js;  // Use the js parameter here
+
+    let event = new Event('input', { bubbles: true });
+
+    event.simulated = true;
+    let tracker = input._valueTracker;
+
+    if (tracker) {
+        tracker.setValue(lastValue);
+    }
+
+    input.dispatchEvent(event);
+
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > label.custom-extension-modal_unsandboxed-container_8juVd > input').click();
+
+    const button = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button');
+    if (button) {
+        const clickEvent = new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true
+        });
+        button.dispatchEvent(clickEvent);
+    } else {
+        console.error('Button not found');
+    }
+}
+
 var loadingScreen;
 setTimeout(() => {
     var style = document.createElement('style');

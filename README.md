@@ -2,6 +2,9 @@
 
 **Penguin Paint** is an image editor based on [PenguinMod](https://penguinmod.com)s costume editor. It provides a streamlined experience by focusing solely on the image editing features, making it perfect for users who want to create and edit images effortlessly.
 
+> This project is a fresh one, so it **will** have many bugs.
+> Please report them in the [issues](https://github.com/pooiod/Penguinmod-Paint/issues) tab
+
 ## Overview
 
 Penguin Paint is designed as a **Live Injection Mod** of PenguinMod. It loads the core PenguinMod functionality and injects its own code, ensuring that users always have access to the latest features and improvements. 
