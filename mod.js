@@ -3,18 +3,6 @@ document.title = document.title.split(" - ")[0] + newtitle;
 
 // Fun fact: if you load this into Turbowarp, it will mostly still work!
 
-const originalReplaceState = history.replaceState;
-history.replaceState = function(state, title, url) {
-    extrabuttons();
-    try {
-        var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
-        img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
-        img.style.filter = "invert(1)";
-    } catch(err) {
-        console.warn("unable to set image src for button");
-    }
-};
-
 function extrabuttons() {
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
@@ -109,6 +97,18 @@ function openPaint() {
         }, 1000); 
     }
 }
+
+const originalReplaceState = history.replaceState;
+history.replaceState = function(state, title, url) {
+    setTimeout(extrabuttons, 100);
+    try {
+        var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
+        img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
+        img.style.filter = "invert(1)";
+    } catch(err) {
+        console.warn("unable to set image src for button");
+    }
+};
 
 window.setSize = function(width, height) {
     runWithScratch(`Scratch.vm.setStageSize(${width}, ${height})`);
