@@ -80,7 +80,7 @@ setTimeout(() => {
     const newButton = document.createElement('button');
     newButton.className = 'settings_button_2ovv0';
     newButton.textContent = 'Back to editor';
-    newButton.onclick = () => window.location.href = '/';
+    newButton.onclick = () => window.location.href = 'https://penguinmod-paint.pages.dev/';
     
     const referenceElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div.settings_footer-buttons_xTSXH > button.settings_button_2ovv0.settings_reset-all-button_2Q-Zi');
     referenceElement.parentNode.insertBefore(newButton, referenceElement);    
