@@ -38,9 +38,6 @@ function openPaint() {
             document.title = document.title.split(" - ")[0] + newtitle;
         }
 
-        extrabuttons();
-        setSize(640, 360);
-
         var element = document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_menu-bar-position_3U1T0.menu-bar_menu-bar_JcuHF.box_box_2jjDp');
         element.style.position = 'fixed';
         element.style.display = 'block';
@@ -112,7 +109,7 @@ history.replaceState = function(state, title, url) {
 };
 
 window.setSize = function(width, height) {
-    var random = "a" + Math.round(Math.random() * 100);
+    var random = "a" + Math.round(Math.random() * 9999999999999999999999999);
     runWithScratch(`(function (Scratch) { "use strict";
         Scratch.vm.setStageSize(${width}, ${height})
 
@@ -230,6 +227,20 @@ const waitForElement = (selector) => {
                     }
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.remove();
+                    try {
+                        extrabuttons();
+                        setSize(640, 360);
+                    } catch(err) {
+                        setTimeout(() => {
+                            try {
+                                extrabuttons();
+                                setSize(640, 360);
+                            } catch(err) {
+                                console.warn(err);
+                                alert("Unable to load extra ui");
+                            }
+                        }, 2000); 
+                    }
                 }, 1000); 
             }, 500); 
         }
