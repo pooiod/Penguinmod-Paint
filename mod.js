@@ -15,7 +15,7 @@ style.textContent = `
         align-items: center;
         text-align: center;
         background-color: rgba(255, 255, 255);
-        z-index: 999999999999999;
+        z-index: 99999999999999999999999999999;
     }
     #loadingImage {
         width: 100px;
@@ -49,7 +49,10 @@ loadingScreen.innerHTML = `
     <div id="loadingImage"></div>
     <h1>Loading Paint</h1>
 `;
-document.body.appendChild(loadingScreen);
+
+setTimeout(() => {
+    document.body.appendChild(loadingScreen);
+}, 500); 
 
 function openPaint() {
     document.title = document.title.split(" - ")[0] + newtitle;
