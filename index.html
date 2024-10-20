@@ -25,37 +25,49 @@
             text-align: center;
         }
 
-        #loadingImageContainer {
-            width: 120px; /* Adjust size as needed */
-            height: 120px; /* Adjust size as needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 5px solid black; /* Black outline */
-            border-radius: 10px; /* Optional: rounded corners */
-            padding: 10px; /* Optional: space between outline and image */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
-        }
-
         #loadingImage {
             width: 100px; /* Adjust size as needed */
             height: 100px; /* Adjust size as needed */
             background-color: #00c3ff; /* Solid blue color */
             mask: url('loader.gif') no-repeat center / contain; /* Use loader.gif as a mask */
             -webkit-mask: url('loader.gif') no-repeat center / contain; /* For Safari */
+            animation: skewAnimation 1.5s ease-in-out infinite; /* Apply animation */
+        }
+
+        @keyframes skewAnimation {
+            0% {
+                transform: skew(-10deg);
+            }
+            50% {
+                transform: skew(10deg);
+            }
+            100% {
+                transform: skew(-10deg);
+            }
         }
 
         h1 {
             margin-top: 20px;
             color: black; /* Title color */
+            animation: titleAnimation 1.5s ease-in-out infinite; /* Apply animation */
+        }
+
+        @keyframes titleAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Move title up */
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <div id="loadingScreen">
-        <div id="loadingImageContainer">
-            <div id="loadingImage"></div>
-        </div>
+        <div id="loadingImage"></div>
         <h1>PenguinMod Paint</h1>
     </div>
 
