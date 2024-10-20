@@ -233,7 +233,7 @@ history.replaceState = function(state, title, url) {
 window.setSize = function(width, height) {
     var random = "a" + Math.round(Math.random() * 999999);
     runWithScratch(`(function (Scratch) { "use strict";
-        Scratch.vm.setStageSize(${width}, ${height})
+        Scratch.vm.setStageSize(${width/2}, ${height/2})
 // super hacky fix
         class ${random} {
             constructor() {
