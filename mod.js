@@ -15,16 +15,24 @@ function openPaint() {
             document.title = document.title.split(" - ")[0] + newtitle;
         }
 
-        const targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
+        var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
-        const buttonHTML = '<button class="settings_button_2ovv0">Open addons</button>';
+        var buttonHTML = '<button class="settings_button_2ovv0">Open addons</button>';
 
         if (targetElement) {
             targetElement.insertAdjacentHTML('afterend', buttonHTML);
 
-            const button = document.querySelector('.settings_button_2ovv0');
+            var button = document.querySelector('.settings_button_2ovv0');
             button.addEventListener('click', function() {
                 window.open("https://penguinmod-paint.pages.dev/addons");
+            });
+
+            buttonHTML = '<button class="settings_button_2ovv0 buttonsize">Set canvas size</button>';
+            targetElement.insertAdjacentHTML('afterend', buttonHTML);
+
+            button = document.querySelector('.buttonsize');
+            button.addEventListener('click', function() {
+                setSize(100,100)
             });
         }
 
@@ -69,9 +77,21 @@ function openPaint() {
     
     document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden > div > div.gui_stage-and-target-wrapper_69KBf.box_box_2jjDp > div.stage-wrapper_stage-wrapper_2bejr.box_box_2jjDp > div:nth-child(1) > div > div > div.stage-header_stage-size-row_14N65').style.display = 'none';
     
-    var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
-    img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
-    img.style.filter = "invert(1)";
+    try {
+        var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
+        img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
+        img.style.filter = "invert(1)";
+    } catch(err) {
+        setTimeout(() => {
+            try {
+                var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
+                img.src = "https://cdn-icons-png.flaticon.com/512/4211/4211763.png";
+                img.style.filter = "invert(1)";
+            } catch(err) {
+                console.warn("unable to set image src for button");
+            }
+        }, 1000); 
+    }
 }
 
 window.setSize = function(width, height) {
@@ -87,7 +107,7 @@ window.runWithScratch = function(js) {
 
     let lastValue = input.value;
 
-    input.value = js;  // Use the js parameter here
+    input.value = js;
 
     let event = new Event('input', { bubbles: true });
 
@@ -102,16 +122,11 @@ window.runWithScratch = function(js) {
 
     document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > label.custom-extension-modal_unsandboxed-container_8juVd > input').click();
 
-    const button = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button');
-    if (button) {
-        const clickEvent = new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true
-        });
-        button.dispatchEvent(clickEvent);
-    } else {
-        console.error('Button not found');
-    }
+    const clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+    });
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button').dispatchEvent(clickEvent);
 }
 
 var loadingScreen;
