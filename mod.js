@@ -59,6 +59,9 @@ function openPaint() {
     document.title = document.title.split(" - ")[0] + newtitle;
 
     document.querySelector('#react-tabs-2').click();
+    setTimeout(() => {
+        document.querySelector('#react-tabs-2').click();
+    }, 3000); 
 
     var styleElement = document.createElement('style');
     styleElement.type = 'text/css';
@@ -95,9 +98,6 @@ const waitForElement = (selector) => {
             clearInterval(checkExist);
             setTimeout(() => {
                 openPaint();
-                setTimeout(() => {
-                    document.querySelector('#react-tabs-2').click();
-                }, 3000); 
                 setTimeout(() => {
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.style.display ="none";
