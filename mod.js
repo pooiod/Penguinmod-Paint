@@ -53,7 +53,7 @@ setTimeout(() => {
     `;
     
     document.body.appendChild(loadingScreen);
-}, 500); 
+}, 100); 
 
 function openPaint() {
     document.title = document.title.split(" - ")[0] + newtitle;
