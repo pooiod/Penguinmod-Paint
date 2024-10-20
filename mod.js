@@ -28,7 +28,7 @@ function extrabuttons() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 195, 255, 0.5)';
+            overlay.style.backgroundColor = 'rgba(0, 195, 255, 0.7)';
             overlay.style.zIndex = '999';
             
             // Create modal
@@ -38,8 +38,8 @@ function extrabuttons() {
             wrapper.style.left = '50%';
             wrapper.style.transform = 'translate(-50%, -50%)';
             wrapper.style.border = '4px solid rgba(255, 255, 255, 0.25)';
-            wrapper.style.borderRadius = '10px';
-            wrapper.style.padding = '10px'; // Add padding to separate modal from border
+            wrapper.style.borderRadius = '13px';
+            wrapper.style.padding = '0px';
             
             const modal = document.createElement('div');
             modal.style.backgroundColor = '#fff';
