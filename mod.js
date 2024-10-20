@@ -1,7 +1,7 @@
 var newtitle = " Paint";
 document.title = document.title.split(" - ")[0] + newtitle;
 
-setTimeout(() => {
+window.addEventListener("load", () => {
     var style = document.createElement('style');
     style.textContent = `
         #loadingScreen {
@@ -50,9 +50,9 @@ setTimeout(() => {
         <div id="loadingImage"></div>
         <h1>Loading Paint</h1>
     `;
-    
+
     document.body.appendChild(loadingScreen);
-}, 500); 
+}); 
 
 function openPaint() {
     document.title = document.title.split(" - ")[0] + newtitle;
