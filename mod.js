@@ -97,6 +97,9 @@ const waitForElement = (selector) => {
                 openPaint();
                 setTimeout(() => {
                     document.querySelector('#react-tabs-2').click();
+                }, 3000); 
+                setTimeout(() => {
+                    document.querySelector('#react-tabs-2').click();
                     loadingScreen.style.display ="none";
                 }, 1000); 
             }, 500); 
