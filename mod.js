@@ -350,7 +350,9 @@ const waitForElement = (selector) => {
                     loadingScreen.remove();
                     try {
                         extrabuttons();
-                        setSize(640, 360);
+                        if (!new URL(window.location.href).searchParams.get('size')) {
+                            setSize(640, 360);
+                        }
                         document.querySelector("head > link:nth-child(9)").remove();
                         const faviconlink = document.createElement('link');
                         faviconlink.rel = 'icon';
