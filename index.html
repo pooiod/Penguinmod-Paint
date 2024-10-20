@@ -113,7 +113,7 @@
             document.open();
             document.write(doc.documentElement.outerHTML);
             document.close();
-          });
+          }).catch(function(){alert("Unable to load");});
     </script>
 </body>
 </html>

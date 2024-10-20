@@ -21,7 +21,7 @@ function extrabuttons() {
 
         button = document.querySelector('.buttonsize');
         button.addEventListener('click', function() {
-            setSize(100,100)
+            
         });
     }
 }
