@@ -1,6 +1,8 @@
 var newtitle = " Paint";
 document.title = document.title.split(" - ")[0] + newtitle;
 
+// Fun fact: if you load this into Turbowarp, it will still work!
+
 function openPaint() {
     if (document.title.split(" - ")[1]) {
         document.title = document.title.split(" - ")[0] + newtitle;
