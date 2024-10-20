@@ -1,9 +1,7 @@
-var newtitle = " Paint";
-document.title = document.title.split(" - ")[0] + newtitle;
+var newtitle = "Penguin Paint";
+document.title = newtitle;
 
-// Fun fact: if you load this into Turbowarp, it will mostly still work!
-
-function extrabuttons() {
+function extrabuttons() { document.title = newtitle;
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
     var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" class="settings_button_2ovv0"><b>Open addons</b></button>';
@@ -141,16 +139,15 @@ function extrabuttons() {
 }
 
 function openPaint() {
-    if (document.title.split(" - ")[1]) {
-        document.title = document.title.split(" - ")[0] + newtitle;
-    }
+    // if (document.title.split(" - ")[1]) {
+    //     document.title = document.title.split(" - ")[0] + newtitle;
+    // }
+    document.title = newtitle;
 
     document.querySelector('#react-tabs-2').click();
     setTimeout(() => {
         document.querySelector('#react-tabs-2').click();
-        if (document.title.split(" - ")[1]) {
-            document.title = document.title.split(" - ")[0] + newtitle;
-        }
+        document.title = newtitle;
 
         var element = document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_menu-bar-position_3U1T0.menu-bar_menu-bar_JcuHF.box_box_2jjDp');
         element.style.position = 'fixed';
@@ -336,9 +333,7 @@ const waitForElement = (selector) => {
             setTimeout(() => {
                 openPaint();
                 setTimeout(() => {
-                    if (document.title.split(" - ")[1]) {
-                        document.title = document.title.split(" - ")[0] + newtitle;
-                    }
+                    document.title = newtitle;
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.remove();
                     try {
