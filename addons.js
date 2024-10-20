@@ -76,6 +76,14 @@ setTimeout(() => {
     if (addonsElement && element.textContent !== "Addons version 7fcab09") {
         addonsElement.textContent = "Addons out of date";
     }
+
+    const newButton = document.createElement('button');
+    newButton.className = 'settings_button_2ovv0';
+    newButton.textContent = 'Back to editor';
+    newButton.onclick = () => window.location.href = '/';
+    
+    const referenceElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div.settings_footer-buttons_xTSXH > button.settings_button_2ovv0.settings_reset-all-button_2Q-Zi');
+    referenceElement.parentNode.insertBefore(newButton, referenceElement);    
     
     selectors.forEach(selector => {
         const element = document.querySelector(selector);
