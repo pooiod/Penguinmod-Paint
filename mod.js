@@ -112,7 +112,9 @@ history.replaceState = function(state, title, url) {
 };
 
 window.setSize = function(width, height) {
-    runWithScratch(`Scratch.vm.setStageSize(${width}, ${height})`);
+    runWithScratch(`(function (Scratch) { "use strict";
+        Scratch.vm.setStageSize(${width}, ${height})
+    })(Scratch);`);
 }
 
 window.runWithScratch = function(js) {
