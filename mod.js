@@ -39,6 +39,7 @@ function openPaint() {
         }
 
         extrabuttons();
+        setSize(640, 360);
 
         var element = document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_menu-bar-position_3U1T0.menu-bar_menu-bar_JcuHF.box_box_2jjDp');
         element.style.position = 'fixed';
