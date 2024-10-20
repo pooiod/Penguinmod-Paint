@@ -26,6 +26,9 @@ function openPaint() {
         element.style.position = 'fixed';
         element.style.display = 'block';
         element.style.top = '-100px';
+
+        element.style.backgroundColor = 'black';
+        element.style.borderBottomLeftRadius = '15px';
         
         element = document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_menu-bar-position_3U1T0.menu-bar_menu-bar_JcuHF.box_box_2jjDp > div.menu-bar_main-menu_3wjWH > div.menu-bar_file-group_1_CHX > div:nth-child(2)');
         element.style.display = 'block';
