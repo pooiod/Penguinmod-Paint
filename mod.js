@@ -61,6 +61,7 @@ function openPaint() {
     document.querySelector('#react-tabs-2').click();
     setTimeout(() => {
         document.querySelector('#react-tabs-2').click();
+        document.title = document.title.split(" - ")[0] + newtitle;
     }, 3000); 
 
     var styleElement = document.createElement('style');
