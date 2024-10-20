@@ -98,6 +98,7 @@ const waitForElement = (selector) => {
         if (document.querySelector(selector)) {
             clearInterval(checkExist);
             setTimeout(() => {
+                openPaint();
                 setTimeout(() => {
                     document.title = document.title.split(" - ")[0] + newtitle;
                     document.querySelector('#react-tabs-2').click();
