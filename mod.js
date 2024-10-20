@@ -21,7 +21,116 @@ function extrabuttons() {
 
         button = document.querySelector('.buttonsize');
         button.addEventListener('click', function() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            overlay.style.zIndex = '999';
             
+            // Create modal
+            const modal = document.createElement('div');
+            modal.style.position = 'absolute';
+            modal.style.top = '50%';
+            modal.style.left = '50%';
+            modal.style.transform = 'translate(-50%, -50%)';
+            modal.style.backgroundColor = '#fff';
+            modal.style.padding = '30px';
+            modal.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+            modal.style.borderRadius = '10px';
+            modal.style.zIndex = '1000';
+            modal.style.width = '300px';
+            modal.style.textAlign = 'center';
+            
+            const title = document.createElement('h2');
+            title.textContent = 'Select Canvas Size';
+            title.style.marginBottom = '20px';
+            title.style.color = '#333';
+            modal.appendChild(title);
+
+            const widthInput = document.createElement('input');
+            widthInput.type = 'number';
+            widthInput.placeholder = 'Width (px)';
+            widthInput.style.margin = '10px 0';
+            widthInput.style.padding = '10px';
+            widthInput.style.width = '100%';
+            widthInput.style.border = '1px solid #ccc';
+            widthInput.style.borderRadius = '5px';
+            modal.appendChild(widthInput);
+
+            const heightInput = document.createElement('input');
+            heightInput.type = 'number';
+            heightInput.placeholder = 'Height (px)';
+            heightInput.style.margin = '10px 0';
+            heightInput.style.padding = '10px';
+            heightInput.style.width = '100%';
+            heightInput.style.border = '1px solid #ccc';
+            heightInput.style.borderRadius = '5px';
+            modal.appendChild(heightInput);
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+            buttonContainer.style.justifyContent = 'space-between';
+            buttonContainer.style.marginTop = '20px';
+
+            const confirmButton = document.createElement('button');
+            confirmButton.textContent = 'Confirm';
+            confirmButton.style.padding = '10px 15px';
+            confirmButton.style.backgroundColor = '#28a745';
+            confirmButton.style.color = '#fff';
+            confirmButton.style.border = 'none';
+            confirmButton.style.cursor = 'pointer';
+            confirmButton.style.borderRadius = '5px';
+            confirmButton.style.transition = 'background-color 0.3s';
+            
+            confirmButton.addEventListener('mouseenter', () => {
+                confirmButton.style.backgroundColor = '#218838';
+            });
+            confirmButton.addEventListener('mouseleave', () => {
+                confirmButton.style.backgroundColor = '#28a745';
+            });
+            buttonContainer.appendChild(confirmButton);
+
+            const cancelButton = document.createElement('button');
+            cancelButton.textContent = 'Cancel';
+            cancelButton.style.padding = '10px 15px';
+            cancelButton.style.backgroundColor = '#dc3545';
+            cancelButton.style.color = '#fff';
+            cancelButton.style.border = 'none';
+            cancelButton.style.cursor = 'pointer';
+            cancelButton.style.borderRadius = '5px';
+            cancelButton.style.transition = 'background-color 0.3s';
+
+            cancelButton.addEventListener('mouseenter', () => {
+                cancelButton.style.backgroundColor = '#c82333';
+            });
+            cancelButton.addEventListener('mouseleave', () => {
+                cancelButton.style.backgroundColor = '#dc3545';
+            });
+            buttonContainer.appendChild(cancelButton);
+
+            modal.appendChild(buttonContainer);
+            overlay.appendChild(modal);
+            document.body.appendChild(overlay);
+
+            // Event listeners for buttons
+            confirmButton.addEventListener('click', () => {
+                const width = parseInt(widthInput.value, 10);
+                const height = parseInt(heightInput.value, 10);
+                if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
+                    setSize(width, height);
+                    document.body.removeChild(overlay);
+                } else {
+                    alert('Please enter valid dimensions!');
+                }
+            });
+
+            cancelButton.addEventListener('click', () => {
+                document.body.removeChild(overlay);
+            });
         });
     }
 }
