@@ -5,7 +5,7 @@ var loadingScreen;
 setTimeout(() => {
     var style = document.createElement('style');
     style.textContent = `
-        #loadingScreen {
+        #paintLoadingScreen {
             position: fixed;
             top: 0;
             left: 0;
@@ -46,7 +46,7 @@ setTimeout(() => {
     document.head.appendChild(style);
     
     loadingScreen = document.createElement('div');
-    loadingScreen.id = 'loadingScreen';
+    loadingScreen.id = 'paintLoadingScreen';
     loadingScreen.innerHTML = `
         <div id="loadingImage"></div>
         <h1>Loading Paint</h1>
