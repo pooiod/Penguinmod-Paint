@@ -1,9 +1,11 @@
-document.title = document.title.split(" - ")[0] + " - Paint";
+var newtitle = " Paint";
+document.title = document.title.split(" - ")[0] + newtitle;
 
 function openPaint() {
-    document.title = document.title.split(" - ")[0] + " - Paint";
+    document.title = document.title.split(" - ")[0] + newtitle;
 
     document.querySelector('#react-tabs-2').click();
+
     var styleElement = document.createElement('style');
     styleElement.type = 'text/css';
     styleElement.appendChild(document.createTextNode('.sa-stage-hidden-outer .scratchEyedropper{display:none}.sa-stage-hidden [class*="blocks_blocks_"] .injectionDiv,.sa-stage-hidden [class*="asset-panel_wrapper_"],.sa-stage-hidden [class*="backpack_backpack-header_"]{border-radius:0}.sa-stage-hidden [class*="gui_flex-wrapper_"] [class*="gui_stage-and-target-wrapper_"],.sa-stage-hidden [class*="stage-wrapper_stage-wrapper_"]:not([class*="stage-wrapper_full-screen_"]),.sa-stage-hidden [class*="gui_target-wrapper_"]{padding:0}.sa-stage-hidden [class*="stage-wrapper_stage-wrapper_"]:not([class*="stage-wrapper_full-screen_"]) [class*="controls_controls-container_"],.sa-stage-hidden [class*="gui_target-wrapper_"]{display:none}.sa-stage-hidden [class*="stage-wrapper_stage-wrapper_"]:not([class*="stage-wrapper_full-screen_"]) [class*="stage-wrapper_stage-canvas-wrapper_"]{visibility:hidden;position:absolute;z-index:-9999;right:0;bottom:100%}[dir="rtl"] .sa-stage-hidden [class*="stage-wrapper_stage-wrapper_"]:not([class*="stage-wrapper_full-screen_"]) [class*="stage-wrapper_stage-canvas-wrapper_"]{right:initial;left:0}.sa-stage-hidden [class*="stage-header_stage-size-row"]{position:absolute;top:0;right:.5rem;height:2.75rem;align-items:center}[dir="rtl"] .sa-stage-hidden [class*="stage-header_stage-size-row"]{right:auto;left:.5rem}'));
@@ -39,7 +41,10 @@ const waitForElement = (selector) => {
             clearInterval(checkExist);
             setTimeout(() => {
                 openPaint();
-            }, 1000); 
+                setTimeout(() => {
+                    document.querySelector('#react-tabs-2').click();
+                }, 500); 
+            }, 500); 
         }
     }, 900);
 };

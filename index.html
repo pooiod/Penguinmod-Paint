@@ -1,22 +1,71 @@
-<script>
-fetch('mod.js')
-  .then(response => response.text())
-  .then(modScript => {
-    const scriptElement = document.createElement('script');
-    scriptElement.text = modScript;
-    document.head.appendChild(scriptElement);
-    
-    return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
-  })
-  .then(response => response.json())
-  .then(data => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data.contents, 'text/html');
-    const base = doc.createElement('base');
-    base.href = 'https://studio.penguinmod.com/';
-    doc.head.appendChild(base);
-    document.open();
-    document.write(doc.documentElement.outerHTML);
-    document.close();
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenguinMod Paint</title>
+    <style>
+        /* CSS for loading screen */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #loadingScreen {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #loadingImage {
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            background-color: blue; /* Solid blue color */
+            mask: url('loader.gif') no-repeat center / contain; /* Use loader.gif as a mask */
+            -webkit-mask: url('loader.gif') no-repeat center / contain; /* For Safari */
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: black; /* Title color */
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingScreen">
+        <div id="loadingImage"></div>
+        <h1>PenguinMod Paint</h1>
+    </div>
+
+    <script>
+        fetch('mod.js')
+          .then(response => response.text())
+          .then(modScript => {
+            const scriptElement = document.createElement('script');
+            scriptElement.text = modScript;
+            document.head.appendChild(scriptElement);
+            
+            return fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://studio.penguinmod.com/editor.html'));
+          })
+          .then(response => response.json())
+          .then(data => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.contents, 'text/html');
+            const base = doc.createElement('base');
+            base.href = 'https://studio.penguinmod.com/';
+            doc.head.appendChild(base);
+            document.open();
+            document.write(doc.documentElement.outerHTML);
+            document.close();
+          });
+    </script>
+</body>
+</html>
