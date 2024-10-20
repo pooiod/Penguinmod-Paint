@@ -361,7 +361,9 @@ const waitForElement = (selector) => {
                         setTimeout(() => {
                             try {
                                 extrabuttons();
-                                setSize(640, 360);
+                                if (!new URL(window.location.href).searchParams.has('size')) {
+                                    setSize(640, 360);
+                                }
                             } catch(err) {
                                 console.warn(err);
                                 alert("Unable to load extra ui");
