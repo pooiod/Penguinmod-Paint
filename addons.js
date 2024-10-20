@@ -63,6 +63,12 @@ setTimeout(() => {
 }, 100); 
 
 setTimeout(() => {
+    const faviconlink = document.createElement('link');
+    faviconlink.rel = 'icon';
+    faviconlink.type = 'image/x-icon';
+    faviconlink.href = 'https://penguinpaint.pages.dev/icons/favicon.png';
+    document.head.appendChild(faviconlink);
+    
     selectors.forEach(selector => {
         const element = document.querySelector(selector);
         if (element) {
