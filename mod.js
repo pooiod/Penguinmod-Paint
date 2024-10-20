@@ -1,6 +1,8 @@
 document.title = document.title.split(" - ")[0] + " - Paint";
 
 function openPaint() {
+    document.title = document.title.split(" - ")[0] + " - Paint";
+    
     document.querySelector('#react-tabs-2').click();
     var styleElement = document.createElement('style');
     styleElement.type = 'text/css';
