@@ -74,6 +74,10 @@ function openPaint() {
     img.style.filter = "invert(1)";
 }
 
+function setSize(width, height) {
+    runWithScratch(`Scratch.vm.setStageSize(${width}, ${height})`);
+}
+
 function runWithScratch(js) {
     document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
     document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span').click();
