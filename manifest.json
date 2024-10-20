@@ -8,7 +8,7 @@
   
     "description": "The PenguinMod image editor",
   
-    "start_url": "https://penguinmod-paint.pages.dev/",
+    "start_url": "https://penguinpaint.pages.dev/",
     "scope": "/",
   
     "display": "standalone",

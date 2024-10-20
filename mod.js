@@ -2,12 +2,16 @@ var newtitle = " Paint";
 document.title = document.title.split(" - ")[0] + newtitle;
 
 function openPaint() {
-    document.title = document.title.split(" - ")[0] + newtitle;
+    if (document.title.split(" - ")[1]) {
+        document.title = document.title.split(" - ")[0] + newtitle;
+    }
 
     document.querySelector('#react-tabs-2').click();
     setTimeout(() => {
         document.querySelector('#react-tabs-2').click();
-        document.title = document.title.split(" - ")[0] + newtitle;
+        if (document.title.split(" - ")[1]) {
+            document.title = document.title.split(" - ")[0] + newtitle;
+        }
 
         const targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
@@ -129,7 +133,9 @@ const waitForElement = (selector) => {
             setTimeout(() => {
                 openPaint();
                 setTimeout(() => {
-                    document.title = document.title.split(" - ")[0] + newtitle;
+                    if (document.title.split(" - ")[1]) {
+                        document.title = document.title.split(" - ")[0] + newtitle;
+                    }
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.remove();
                 }, 1000); 
