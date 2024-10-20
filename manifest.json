@@ -6,7 +6,7 @@
     "theme_color": "#00c3ff",
     "background_color": "#00c3ff",
   
-    "description": "The PenguinMod image editor",
+    "description": "A somple SVG image editor",
   
     "start_url": "https://penguinpaint.pages.dev/",
     "scope": "/",
