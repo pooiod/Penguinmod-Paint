@@ -1,0 +1,42 @@
+{
+    "id": "/penguinpaint",
+    "name": "PenguinMod Paint",
+    "short_name": "Penguin Paint",
+  
+    "theme_color": "#00c3ff",
+    "background_color": "#00c3ff",
+  
+    "description": "The PenguinMod image editor",
+  
+    "start_url": "https://penguinmod-paint.pages.dev/",
+    "scope": "/",
+  
+    "display": "standalone",
+  
+    "icons": [
+      {
+        "src": "/icons/280.png",
+        "sizes": "280x280",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      }
+    ],
+  
+    "orientation": "any", 
+
+    "lang": "en"
+}
