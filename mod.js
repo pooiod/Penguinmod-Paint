@@ -103,19 +103,6 @@ const waitForElement = (selector) => {
                     document.title = document.title.split(" - ")[0] + newtitle;
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.remove();
-
-                    const targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
-
-                    const buttonHTML = '<button class="settings_button_2ovv0">Open addons</button>';
-
-                    if (targetElement) {
-                        targetElement.insertAdjacentHTML('afterend', buttonHTML);
-
-                        const button = document.querySelector('.settings_button_2ovv0');
-                        button.addEventListener('click', function() {
-                            window.location.href = 'https://penguinmod-paint.pages.dev/addons';
-                        });
-                    }
                 }, 1000); 
             }, 500); 
         }
