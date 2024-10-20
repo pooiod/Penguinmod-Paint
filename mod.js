@@ -112,8 +112,24 @@ history.replaceState = function(state, title, url) {
 };
 
 window.setSize = function(width, height) {
+    var random = "a" + Math.round(Math.random() * 100);
     runWithScratch(`(function (Scratch) { "use strict";
         Scratch.vm.setStageSize(${width}, ${height})
+
+        class ${random} {
+            constructor() {
+            this.thing = 0;
+            }
+
+            getInfo() {
+            return {
+                id: '${random}',
+                name: '${random}',
+                blocks: []
+            };
+            }
+        }
+        Scratch.extensions.register(new ${random}());
     })(Scratch);`);
 }
 
