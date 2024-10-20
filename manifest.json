@@ -6,7 +6,7 @@
     "theme_color": "#00c3ff",
     "background_color": "#00c3ff",
   
-    "description": "A somple SVG image editor",
+    "description": "A smiple SVG / PNG image editor",
   
     "start_url": "https://penguinpaint.pages.dev/",
     "scope": "/",
