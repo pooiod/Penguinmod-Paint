@@ -361,7 +361,7 @@ const waitForElement = (selector) => {
                         setTimeout(() => {
                             try {
                                 extrabuttons();
-                                if (!new URL(window.location.href).searchParams.has('size')) {
+                                if (!new URL(window.location.href).searchParams.get('size')) {
                                     setSize(640, 360);
                                 }
                             } catch(err) {
