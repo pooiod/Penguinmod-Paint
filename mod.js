@@ -31,7 +31,7 @@ function openPaint() {
         element.style.display = 'block';
         element.style.position = 'fixed';
         element.style.top = '0';
-        element.style.right = '0';
+        element.style.right = '-10px';
         element.style.zIndex = '9999999999999999999999999999999999999999999';
         element.style.backgroundColor = 'black';
         element.style.borderBottomLeftRadius = '15px';
