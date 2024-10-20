@@ -11,7 +11,7 @@ function extrabuttons() { document.title = newtitle;
 
         var button = document.querySelector('.settings_button_2ovv0');
         button.addEventListener('click', function() {
-            window.open("https://penguinmod-paint.pages.dev/addons");
+            window.open("https://penguinmod-paint.pages.dev/addons", "_blank", "width=500,height=800");
         });
 
         buttonHTML = '<button class="settings_button_2ovv0 buttonsize" style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;"><b>Set canvas size</b></button>';
