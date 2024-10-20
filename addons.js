@@ -83,7 +83,7 @@ setTimeout(() => {
 
 setTimeout(() => {
     const addonsElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > footer > span');
-    if (addonsElement && element.textContent !== "Addons version 7fcab09") {
+    if (addonsElement && addonsElement.textContent !== "Addons version 7fcab09") {
         addonsElement.textContent = "Addons out of date";
     } else {
         addonsElement.innerHTML = "Penguin Paint is <a src='https://github.com/pooiod/Penguinmod-Paint'>open source</a>!";
