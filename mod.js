@@ -333,6 +333,7 @@ const waitForElement = (selector) => {
         if (document.querySelector(selector)) {
             clearInterval(checkExist);
             setTimeout(() => {
+                document.querySelector("#app > div").style.minWidth = "750px";
                 openPaint();
                 setTimeout(() => {
                     document.title = newtitle;
