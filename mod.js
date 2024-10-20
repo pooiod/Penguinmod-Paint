@@ -18,7 +18,7 @@ function openPaint() {
 
             const button = document.querySelector('.settings_button_2ovv0');
             button.addEventListener('click', function() {
-                window.location.href = 'https://penguinmod-paint.pages.dev/addons';
+                window.open("https://penguinmod-paint.pages.dev/addons");
             });
         }
 
@@ -31,12 +31,12 @@ function openPaint() {
         element.style.display = 'block';
         element.style.position = 'fixed';
         element.style.top = '0';
-        element.style.right = '-10px';
+        element.style.right = '0';
         element.style.zIndex = '9999999999999999999999999999999999999999999';
         element.style.backgroundColor = 'black';
         element.style.borderBottomLeftRadius = '15px';
         element.style.width = "30px";
-        element.style.height = element.style.width;
+        element.style.height = "30px";
     }, 3000); 
 
     var styleElement = document.createElement('style');
