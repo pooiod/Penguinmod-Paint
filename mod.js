@@ -1,12 +1,6 @@
 var newtitle = "Penguin Paint";
 document.title = newtitle;
 
-const faviconlink = document.createElement('link');
-faviconlink.rel = 'icon';
-faviconlink.type = 'image/x-icon';
-faviconlink.href = 'https://penguinpaint.pages.dev/icons/favicon.png';
-document.head.appendChild(faviconlink);
-
 function extrabuttons() { document.title = newtitle;
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
@@ -345,6 +339,12 @@ const waitForElement = (selector) => {
                     try {
                         extrabuttons();
                         setSize(640, 360);
+                        document.querySelector("head > link:nth-child(9)").remove();
+                        const faviconlink = document.createElement('link');
+                        faviconlink.rel = 'icon';
+                        faviconlink.type = 'image/x-icon';
+                        faviconlink.href = 'https://penguinpaint.pages.dev/icons/favicon.png';
+                        document.head.appendChild(faviconlink);
                     } catch(err) {
                         setTimeout(() => {
                             try {
