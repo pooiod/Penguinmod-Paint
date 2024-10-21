@@ -1,3 +1,13 @@
+function makecards() {
+    createCard(
+        "Helper GPT",
+        "Adds a Chat GPT sidebar",
+        "Pooiod7",
+        "Press CTRL + G to open the side bar",
+        false, "//pooiod7.neocities.org/snips/helperGPT.js"
+    );
+}
+
 var selectors = [
     "#app > div > div.settings_header_Y9USz",
     "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
@@ -224,13 +234,6 @@ setTimeout(() => {
     
         container.appendChild(card);
     }
-    
-    // Usage example:
-    createCard(
-        "Helper GPT",
-        "Adds a Chat GPT sidebar",
-        "Pooiod7",
-        "Press CTRL + G to open the side bar",
-        false, "//pooiod7.neocities.org/snips/helperGPT.js"
-    );    
+
+    makecards();
 }, 1000); 
