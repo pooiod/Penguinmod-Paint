@@ -346,61 +346,6 @@ window.runWithScratch = function(js) {
     document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button').dispatchEvent(clickEvent);
 }
 
-var loadingScreen;
-function showLoader() {
-    var style = document.createElement('style');
-    style.textContent = `
-        #paintLoadingScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #00c3ff;
-            z-index: 99999999999999999999999999999;
-        }
-        #loadingImage {
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
-            mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
-            -webkit-mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
-            animation: skewAnimation 1.5s ease-in-out infinite;
-        }
-        @keyframes skewAnimation {
-            0% { transform: skew(-2deg); }
-            50% { transform: skew(2deg); }
-            100% { transform: skew(-2deg); }
-        }
-        h1 {
-            margin-top: 20px;
-            color: #fff;
-            animation: titleAnimation 1.5s ease-in-out infinite;
-        }
-        @keyframes titleAnimation {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-2px); }
-            100% { transform: translateY(0); }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    loadingScreen = document.createElement('div');
-    loadingScreen.id = 'paintLoadingScreen';
-    loadingScreen.innerHTML = `
-        <div id="loadingImage"></div>
-        <h1>Loading Paint</h1>
-    `;
-    
-    document.body.appendChild(loadingScreen);
-}
-setTimeout(showLoader, 100); 
-
 window.addImageButton = function(image, callback) {
     const target = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > div.action-menu_more-buttons-outer_3J9yZ > div');
     
@@ -432,6 +377,61 @@ window.addImageButton = function(image, callback) {
     // newDiv.appendChild(tooltipDiv);
     target.appendChild(newDiv);
 }
+
+var loadingScreen;
+function showLoader() {
+    var style = document.createElement('style');
+    style.textContent = `
+        #paintLoadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #00c3ff;
+            z-index: 99999999999999999999999999999;
+        }
+        #loadingImage {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
+            -webkit-mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
+            animation: skewAnimation 2s ease-in-out infinite;
+        }
+        @keyframes skewAnimation {
+            0% { transform: skew(-2deg); }
+            50% { transform: skew(2deg); }
+            100% { transform: skew(-2deg); }
+        }
+        h1 {
+            margin-top: 20px;
+            color: #fff;
+            animation: titleAnimation 1.5s ease-in-out infinite;
+        }
+        @keyframes titleAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+            100% { transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    loadingScreen = document.createElement('div');
+    loadingScreen.id = 'paintLoadingScreen';
+    loadingScreen.innerHTML = `
+        <div id="loadingImage"></div>
+        <h1>Loading Paint</h1>
+    `;
+    
+    document.body.appendChild(loadingScreen);
+}
+setTimeout(showLoader, 100);
 
 function insertAddons() {
     const enabledLinks = document.cookie
