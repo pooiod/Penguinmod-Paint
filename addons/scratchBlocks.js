@@ -139,7 +139,7 @@ window.runWithScratch(`
       } else {
           style = "scratch3-high-contrast";
       }
-      var sblocks = blocks.replace(/\\\n/g, "\\n");
+      var sblocks = blocks.replace(/\\\\n/g, "\\n");
 
       let doc = scratchblocks.module.parse(sblocks, { lang: "en", style: style });
       let docView = scratchblocks.module.newView(doc, { style: style });
@@ -149,24 +149,6 @@ window.runWithScratch(`
     }
 
 	makestackSVG(\`${style}\`, \`${code}\`)
-
-    function makestackSVGstring(args) {
-      var style;
-      if (args.type == "sb2") {
-        style = "scratch2";
-      } else if (args.type == "sb3") {
-          style = "scratch3";
-      } else {
-          style = "scratch3-high-contrast";
-      }
-      var sblocks = args.blocks.replace(/\\\n/g, "\\n");
-
-      let doc = scratchblocks.module.parse(sblocks, { lang: "en", style: style });
-      let docView = scratchblocks.module.newView(doc, { style: style });
-      docView.render();
-
-      return docView.exportSVGString();
-    }
 
     function makestackPNG(args, util) {
       var style;
