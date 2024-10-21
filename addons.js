@@ -136,7 +136,7 @@ function createCard(name, desc, credits, notice, scriptLink) {
     }
 
     const savedState = getCookie(cardId);
-    const initialEnabled = savedState === 'on' ? true : savedState === 'off' ? false : isEnabled;
+    const initialEnabled = savedState === 'on' ? true : savedState === 'off' ? false : false;
 
     const card = document.createElement('div');
     card.className = 'settings_addon_3Oi_z';
