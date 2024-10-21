@@ -154,8 +154,8 @@ addImageButton(
 
             document.body.removeChild(overlay);
 
-            if (window.confirm("Resize canvas to fit image (1000x1000)")) setSize(1000, 1000);
             gptimage.generate(prompt).then(function(image) {
+                if (window.confirm("Resize canvas to fit ai image (1000x1000)")) setSize(1000, 1000);
                 addImage(prompt, image);
             });
         });
