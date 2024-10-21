@@ -184,7 +184,7 @@ addImageButton(
                         addImage(prompt, resizedImage);
                     })
                     .catch(error => {
-                        if (window.confirm("Resize canvas to fit ai image (1000x1000)")) setSize(1000, 1000);
+                        if (window.confirm("Unable to resize image, add anyways? (1000x1000)")) setSize(1000, 1000);
                         addImage(prompt, imageUrl);
                     });                
             });
