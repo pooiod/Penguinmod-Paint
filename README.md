@@ -16,6 +16,9 @@ This may be slower, but it ensures that all PenguinMod updates are always availa
 - **Always in-sync with PenguinMod**: Since it's built on PenguinMod, any updates to PenguinMod features are automatically available in Penguin Paint.
 - **User-Friendly Interface**: An intuitive and simple interface for users of all skill levels.
 - **Web Application**: Accessible directly through your browser without any installation required.
+- Add-ons
+
+Penguin Paint supports add-ons, which extend its functionality by providing additional tools, features, or customization options, while keeping the core application small.
 
 ## Installation
 
