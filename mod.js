@@ -18,7 +18,9 @@ function extrabuttons() { document.title = newtitle;
     //     }
     // });    
 
-    var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" class="settings_button_2ovv0"><b>Open addons</b></button>';
+    if (document.getElementById("addonsbutton")) return;
+
+    var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" id="addonsbutton" class="settings_button_2ovv0"><b>Open addons</b></button>';
 
     if (targetElement) {
         targetElement.insertAdjacentHTML('afterend', buttonHTML);
