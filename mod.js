@@ -231,25 +231,7 @@ history.replaceState = function(state, title, url) {
 };
 
 window.setSize = function(width, height) {
-    var random = "a" + Math.round(Math.random() * 999999);
-    runWithScratch(`(function (Scratch) { "use strict";
-        Scratch.vm.setStageSize(${width/2}, ${height/2})
-// super hacky fix
-        class ${random} {
-            constructor() {
-            this.thing = 0;
-            }
-
-            getInfo() {
-            return {
-                id: '${random}',
-                name: '${random}',
-                blocks: []
-            };
-            }
-        }
-        Scratch.extensions.register(new ${random}());
-    })(Scratch);`);
+    runWithScratch(`Scratch.vm.setStageSize(${width/2}, ${height/2})`);
 }
 
 window.runWithScratch = function(js) {
@@ -261,7 +243,21 @@ window.runWithScratch = function(js) {
 
     let lastValue = input.value;
 
-    input.value = js;
+    var random = "internalextruncode" + Math.round(Math.random() * 999999);
+    input.value = `(function (Scratch) { "use strict";
+        ${js}
+// super hacky fix
+        class ${random} {
+            getInfo() {
+            return {
+                id: '${random}',
+                name: '${random}',
+                blocks: []
+            };
+            }
+        }
+        Scratch.extensions.register(new ${random}());
+    })(Scratch);`;
 
     let event = new Event('input', { bubbles: true });
 
