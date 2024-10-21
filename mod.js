@@ -343,7 +343,7 @@ window.addImageButton = function(image, callback) {
     
     const newDiv = document.createElement('div');
     const button = document.createElement('button');
-    button.setAttribute('aria-label', tooltip);
+    // button.setAttribute('aria-label', tooltip);
     button.className = 'action-menu_button_1qbot action-menu_more-button_1fMGZ';
     button.setAttribute('data-tip', tooltip);
     button.innerHTML = `<img class="action-menu_more-icon_TJUQ7" draggable="false" src="${image}">`;
