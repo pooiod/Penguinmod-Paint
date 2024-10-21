@@ -3,9 +3,155 @@ document.title = newtitle;
 
 // Fun fact: you can load into penguinpaint on penguinmod by loading it as an unsandboxed extension (no addon support)
 
+
+// functions for addons
 window.stageWidth = 480;
 window.stageHeight = 360;
 
+window.fatalError = function(err) {
+    err = err || "Error: unknown error"
+    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
+    document.body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00a6d9;">${error}</div>`;
+}
+
+window.setSize = function(width, height) {
+    runWithScratch(`Scratch.vm.setStageSize(${width/2}, ${height/2})`);
+    window.stageWidth = width;
+    window.stageHeight = height;
+}
+
+window.fitToCanvas = async function(url) {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+  
+    return new Promise((resolve, reject) => {
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const aspectRatio = img.width / img.height;
+  
+        if (window.stageWidth / window.stageHeight > aspectRatio) {
+          canvas.height = window.stageHeight;
+          canvas.width = window.stageHeight * aspectRatio;
+        } else {
+          canvas.width = window.stageWidth;
+          canvas.height = window.stageWidth / aspectRatio;
+        }
+  
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const resizedImage = canvas.toDataURL();
+        resolve(resizedImage);
+      };
+  
+      img.onerror = () => {
+        resolve(url);
+      };
+  
+      img.src = url;
+    });
+}  
+
+window.addImage = function(name, url) {
+    runWithScratch(`
+        function importImage(TEXT) {
+          fetch(TEXT)
+            .then((r) => r.arrayBuffer())
+            .then((arrayBuffer) => {
+              const storage = vm.runtime.storage;
+              vm.addCostume("${name.replace('"', '/"')}.PNG", {
+                name: "${name.replace('"', '/"')}",
+                asset: new storage.Asset(
+                  storage.AssetType.ImageBitmap,
+                  null,
+                  storage.DataFormat.PNG,
+                  new Uint8Array(arrayBuffer),
+                  true
+                ),
+              });
+            });
+        } importImage("${url}");
+    `);
+}
+
+window.runWithScratch = function(js) {
+    document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
+    (document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span') || document.querySelector("body > div.ReactModalPortal > div > div > div > div.library_library-scroll-grid_1jyXm.library_withFilterBar_26Opm > div:nth-child(14)")).click();
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_type-selector-container_2Fag3 > div:nth-child(3)').click();
+
+    let input = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > textarea');
+
+    let lastValue = input.value;
+
+    var random = "internalextruncode" + Math.round(Math.random() * 999999);
+    input.value = `(function (Scratch) { "use strict";
+        ${js}
+// super hacky fix
+        class ${random} {
+            getInfo() {
+            return {
+                id: '${random}',
+                name: '${random}',
+                blocks: []
+            };
+            }
+        }
+        Scratch.extensions.register(new ${random}());
+    })(Scratch);`;
+
+    let event = new Event('input', { bubbles: true });
+
+    event.simulated = true;
+    let tracker = input._valueTracker;
+
+    if (tracker) {
+        tracker.setValue(lastValue);
+    }
+
+    input.dispatchEvent(event);
+
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > label.custom-extension-modal_unsandboxed-container_8juVd > input').click();
+
+    const clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+    });
+    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button').dispatchEvent(clickEvent);
+}
+
+window.addImageButton = function(image, callback) {
+    const target = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > div.action-menu_more-buttons-outer_3J9yZ > div');
+    
+    const newDiv = document.createElement('div');
+    const button = document.createElement('button');
+    // button.setAttribute('aria-label', tooltip);
+    button.className = 'action-menu_button_1qbot action-menu_more-button_1fMGZ';
+    // button.setAttribute('data-tip', tooltip);
+    button.innerHTML = `<img class="action-menu_more-icon_TJUQ7" draggable="false" src="${image}">`;
+
+    // const tooltipDiv = document.createElement('div');
+    // tooltipDiv.className = '__react_component_tooltip action-menu_tooltip_3Bkh5';
+    // tooltipDiv.style.display = 'none'; // Start hidden
+    // tooltipDiv.textContent = tooltip;
+
+    // button.addEventListener('mouseenter', () => {
+    //     tooltipDiv.style.display = 'block';
+    //     tooltipDiv.style.left = '58px'; // Set left position
+    //     tooltipDiv.style.top = `${button.getBoundingClientRect().bottom + window.scrollY}px`; // Set top position below the button
+    // });
+
+    // button.addEventListener('mouseleave', () => {
+    //     tooltipDiv.style.display = 'none';
+    // });
+
+    button.addEventListener('click', callback);
+
+    newDiv.appendChild(button);
+    // newDiv.appendChild(tooltipDiv);
+    target.appendChild(newDiv);
+}
+
+
+// internal mod code
 function extrabuttons() { document.title = newtitle;
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
@@ -161,12 +307,6 @@ function extrabuttons() { document.title = newtitle;
     }
 }
 
-window.fatalError = function(err) {
-    err = err || "Error: unknown error"
-    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
-    document.body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00a6d9;">${error}</div>`;
-}
-
 function openPaint() {
     // if (document.title.split(" - ")[1]) {
     //     document.title = document.title.split(" - ")[0] + newtitle;
@@ -257,142 +397,6 @@ history.replaceState = function(state, title, url) {
         console.warn("unable to set image src for button");
     }
 };
-
-window.setSize = function(width, height) {
-    runWithScratch(`Scratch.vm.setStageSize(${width/2}, ${height/2})`);
-    window.stageWidth = width;
-    window.stageHeight = height;
-}
-
-window.fitToCanvas = async function(url) {
-    const img = new Image();
-    img.crossOrigin = "Anonymous";
-  
-    return new Promise((resolve, reject) => {
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        const aspectRatio = img.width / img.height;
-  
-        if (window.stageWidth / window.stageHeight > aspectRatio) {
-          canvas.height = window.stageHeight;
-          canvas.width = window.stageHeight * aspectRatio;
-        } else {
-          canvas.width = window.stageWidth;
-          canvas.height = window.stageWidth / aspectRatio;
-        }
-  
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        const resizedImage = canvas.toDataURL();
-        resolve(resizedImage);
-      };
-  
-      img.onerror = () => {
-        resolve(url);
-      };
-  
-      img.src = url;
-    });
-}  
-
-window.addImage = function(name, url) {
-    runWithScratch(`
-        function importImage(TEXT) {
-          fetch(TEXT)
-            .then((r) => r.arrayBuffer())
-            .then((arrayBuffer) => {
-              const storage = vm.runtime.storage;
-              vm.addCostume("${name.replace('"', '/"')}.PNG", {
-                name: "${name.replace('"', '/"')}",
-                asset: new storage.Asset(
-                  storage.AssetType.ImageBitmap,
-                  null,
-                  storage.DataFormat.PNG,
-                  new Uint8Array(arrayBuffer),
-                  true
-                ),
-              });
-            });
-        } importImage("${url}");
-    `);
-}
-
-window.runWithScratch = function(js) {
-    document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
-    (document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span') || document.querySelector("body > div.ReactModalPortal > div > div > div > div.library_library-scroll-grid_1jyXm.library_withFilterBar_26Opm > div:nth-child(14)")).click();
-    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_type-selector-container_2Fag3 > div:nth-child(3)').click();
-
-    let input = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > textarea');
-
-    let lastValue = input.value;
-
-    var random = "internalextruncode" + Math.round(Math.random() * 999999);
-    input.value = `(function (Scratch) { "use strict";
-        ${js}
-// super hacky fix
-        class ${random} {
-            getInfo() {
-            return {
-                id: '${random}',
-                name: '${random}',
-                blocks: []
-            };
-            }
-        }
-        Scratch.extensions.register(new ${random}());
-    })(Scratch);`;
-
-    let event = new Event('input', { bubbles: true });
-
-    event.simulated = true;
-    let tracker = input._valueTracker;
-
-    if (tracker) {
-        tracker.setValue(lastValue);
-    }
-
-    input.dispatchEvent(event);
-
-    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > label.custom-extension-modal_unsandboxed-container_8juVd > input').click();
-
-    const clickEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-    });
-    document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_button-row_3dv8g > button').dispatchEvent(clickEvent);
-}
-
-window.addImageButton = function(image, callback) {
-    const target = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > div.action-menu_more-buttons-outer_3J9yZ > div');
-    
-    const newDiv = document.createElement('div');
-    const button = document.createElement('button');
-    // button.setAttribute('aria-label', tooltip);
-    button.className = 'action-menu_button_1qbot action-menu_more-button_1fMGZ';
-    // button.setAttribute('data-tip', tooltip);
-    button.innerHTML = `<img class="action-menu_more-icon_TJUQ7" draggable="false" src="${image}">`;
-
-    // const tooltipDiv = document.createElement('div');
-    // tooltipDiv.className = '__react_component_tooltip action-menu_tooltip_3Bkh5';
-    // tooltipDiv.style.display = 'none'; // Start hidden
-    // tooltipDiv.textContent = tooltip;
-
-    // button.addEventListener('mouseenter', () => {
-    //     tooltipDiv.style.display = 'block';
-    //     tooltipDiv.style.left = '58px'; // Set left position
-    //     tooltipDiv.style.top = `${button.getBoundingClientRect().bottom + window.scrollY}px`; // Set top position below the button
-    // });
-
-    // button.addEventListener('mouseleave', () => {
-    //     tooltipDiv.style.display = 'none';
-    // });
-
-    button.addEventListener('click', callback);
-
-    newDiv.appendChild(button);
-    // newDiv.appendChild(tooltipDiv);
-    target.appendChild(newDiv);
-}
 
 var loadingScreen;
 function showLoader() {
