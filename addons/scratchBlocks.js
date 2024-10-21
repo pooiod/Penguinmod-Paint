@@ -18,7 +18,7 @@ addImageButton(
       wrapper.style.left = '50%';
       wrapper.style.transform = 'translate(-50%, -50%)';
     //   wrapper.style.backgroundColor = '#fff';
-      wrapper.style.padding = '20px';
+      wrapper.style.padding = '0px';
       wrapper.style.borderRadius = '8px';
       wrapper.style.width = '400px';
       wrapper.style.border = '4px solid rgba(255, 255, 255, 0.25)';
@@ -27,6 +27,7 @@ addImageButton(
 	  modal.style.backgroundColor = '#fff';
 	  modal.style.padding = '30px';
 	  modal.style.borderRadius = '10px';
+	  modal.style.padding = '0px';
 	  modal.style.width = '300px';
 	  modal.style.textAlign = 'center';
 	  
@@ -37,7 +38,7 @@ addImageButton(
       title.textContent = 'Enter Scratchblocks Code';
       title.style.textAlign = 'center';
       title.style.marginBottom = '20px';
-      wrapper.appendChild(title);
+      modal.appendChild(title);
 
       // Create multi-line text input
       const textInput = document.createElement('textarea');
