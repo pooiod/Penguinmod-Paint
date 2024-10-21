@@ -7007,4 +7007,5 @@ window.runWithScratch(`
           scratchblocks.module.appendStyles();
       })();
   };
-  scratchblocks.init();
+  window.scratchblocks = scratchblocks;
+  window.scratchblocks.init();
