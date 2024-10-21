@@ -178,7 +178,7 @@ addImageButton(
             document.body.removeChild(overlay);
 
             gptimage.generate(prompt).then(function(imageUrl) {
-              const size = Math.min(1000, window.stageHeight, window.stageWidth);
+                const size = Math.min(1000, window.stageHeight, window.stageWidth);
                 resizeImage(imageUrl, size, size)
                     .then(resizedImage => {
                         addImage(prompt, resizedImage);
