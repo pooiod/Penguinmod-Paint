@@ -7,5 +7,5 @@ if (targetElement) {
         child.style.transform = 'scaleY(-1)';
     }
 } else {
-    console.error('Target element not found');
+    window.fatalError("Unable to load editor backpack");
 }
