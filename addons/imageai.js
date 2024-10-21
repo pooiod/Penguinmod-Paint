@@ -55,6 +55,7 @@ addImageButton(
     'static/assets/94b06fb716871f81bec601724e29a457.svg',
     async () => { 
         var prompt = "car";
+        if (window.confirm("Resize canvas to fit image (1000x1000")) setSize(1000, 1000);
         gptimage.generate("prompt").then(function(image){
             addImage(prompt, image);
         });
