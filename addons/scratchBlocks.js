@@ -147,7 +147,7 @@ window.runWithScratch(`
 
 	  console.log(docView.exportSVG());
 
-      importSVG({"TEXT": docView.exportSVG(), "NAME": "stack1"});
+      importSVG(docView.exportSVG(), stack1});
     }
 
 	makestackSVG(\`${style}\`, \`${code}\`)
