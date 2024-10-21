@@ -359,9 +359,9 @@ window.addImageButton = function(image, callback) {
     //     tooltipDiv.style.top = `${button.getBoundingClientRect().bottom + window.scrollY}px`; // Set top position below the button
     // });
 
-    button.addEventListener('mouseleave', () => {
-        tooltipDiv.style.display = 'none';
-    });
+    // button.addEventListener('mouseleave', () => {
+    //     tooltipDiv.style.display = 'none';
+    // });
 
     button.addEventListener('click', callback);
 
