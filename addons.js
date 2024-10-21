@@ -8,7 +8,8 @@ function makecards() {
                 addon.description,
                 addon.authors.join(', '),
                 addon.note,
-                addon.id.includes("//")?addon.id:("//penguinpaint.pages.dev/addons/" + addon.id + ".js")
+                addon.id.includes("//")?addon.id:("//penguinpaint.pages.dev/addons/" + addon.id + ".js"),
+                addon.hidden
             );
         });
     })
@@ -125,7 +126,7 @@ setTimeout(() => {
     makecards();
 }, 1000); 
 
-function createCard(name, desc, credits, notice, scriptLink) {
+function createCard(name, desc, credits, notice, scriptLink, hidden) {
     const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2)') || document.body;
     if (!container) return;
 
@@ -242,6 +243,10 @@ function createCard(name, desc, credits, notice, scriptLink) {
 
     card.appendChild(header);
     card.appendChild(details);
+
+    if (hidden) {
+        card.style.display = "none";
+    }
 
     container.appendChild(card);
 }
