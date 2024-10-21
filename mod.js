@@ -337,6 +337,19 @@ setTimeout(() => {
     document.body.appendChild(loadingScreen);
 }, 100); 
 
+function insertAddons() {
+    const enabledLinks = document.cookie
+        .split('; ')
+        .filter(cookie => cookie.startsWith('card_') && cookie.endsWith('=on'))
+        .map(cookie => decodeURIComponent(cookie.split('=')[0].slice(5)));
+
+    enabledLinks.forEach(link => {
+        const script = document.createElement('script');
+        script.src = link;
+        document.body.appendChild(script);
+    });
+}
+
 const waitForElement = (selector) => {
     const checkExist = setInterval(() => {
         if (document.querySelector(selector)) {
@@ -362,6 +375,7 @@ const waitForElement = (selector) => {
                     } catch(err) {
                         setTimeout(() => {
                             try {
+                                insertAddons();
                                 extrabuttons();
                                 if (!new URL(window.location.href).searchParams.get('size')) {
                                     setSize(640, 360);
