@@ -4,7 +4,7 @@ function makecards() {
         "Generate images with AI",
         "Pooiod7",
         "This addon is not recomended, and may not always work as intended",
-        false, "////penguinpaint.pages.dev/addons/imageai.js"
+        false, "//penguinpaint.pages.dev/addons/imageai.js"
     );
 }
 
