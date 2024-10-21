@@ -208,6 +208,8 @@ function openPaint() {
     elementsToHide.forEach(selector => {
         document.querySelector(selector).style.display = 'none';
     });
+
+    document.querySelector("#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden > div > div.gui_editor-wrapper_2DYcj.box_box_2jjDp > div.backpack_backpack-container_2_wGr > div").style.margin = "0px";
     
     document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden').style.height = '100%';
     
