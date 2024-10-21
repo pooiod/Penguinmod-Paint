@@ -32,8 +32,9 @@ addImageButton(
 
       // Create multi-line text input
       const textInput = document.createElement('textarea');
-      textInput.placeholder = `when flag clicked :: cat\nrepeat (10)\n  move (5) steps\n  say [I love Penguin Paint!]\nend`;
-      textInput.style.width = '100%';
+      textInput.placeholder = `when flag clicked :: cat\nrepeat (10)\n  move (5) steps\n  say [Hello, World!]\nend`;
+      textInput.value = textInput.placeholder;
+	  textInput.style.width = '100%';
       textInput.style.height = '150px';
       textInput.style.marginBottom = '15px';
       textInput.style.padding = '10px';
