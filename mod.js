@@ -348,6 +348,72 @@ function insertAddons() {
         script.src = link;
         document.body.appendChild(script);
     });
+
+    let lastCookies = document.cookie;
+    const alertId = 'cookie-alert';
+
+    function checkCookies() {
+        const currentCookies = document.cookie;
+
+        if (currentCookies !== lastCookies) {
+            lastCookies = currentCookies;
+            showAlert();
+        }
+    }
+
+    function showAlert() {
+        if (!document.getElementById(alertId)) {
+            const alertDiv = document.createElement('div');
+            alertDiv.id = alertId;
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.top = '20px';
+            alertDiv.style.right = '20px';
+            alertDiv.style.padding = '15px';
+            alertDiv.style.borderRadius = '5px';
+            alertDiv.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.3)';
+            alertDiv.style.zIndex = '999';
+            alertDiv.style.fontFamily = 'Arial, sans-serif';
+            alertDiv.style.display = 'flex';
+            alertDiv.style.alignItems = 'center';
+            alertDiv.style.justifyContent = 'space-between';
+            alertDiv.style.background = 'rgba(255, 255, 255, 1)';
+
+            const message = document.createElement('span');
+            message.innerText = 'Addon settings have changed, do you want to reload and apply?';
+
+            const reloadButton = document.createElement('button');
+            reloadButton.innerText = 'Reload';
+            reloadButton.style.marginLeft = '10px';
+            reloadButton.style.padding = '10px 20px';
+            reloadButton.style.border = '1px solid #ccc';
+            reloadButton.style.borderRadius = '3px';
+            reloadButton.style.cursor = 'pointer';
+
+            reloadButton.onclick = function() {
+                location.reload();
+            };
+
+            const cancelButton = document.createElement('button');
+            cancelButton.innerText = 'Cancel';
+            cancelButton.style.marginLeft = '10px';
+            cancelButton.style.padding = '10px 20px';
+            cancelButton.style.border = '1px solid #ccc';
+            cancelButton.style.borderRadius = '3px';
+            cancelButton.style.cursor = 'pointer';
+
+            cancelButton.onclick = function() {
+                document.body.removeChild(alertDiv);
+            };
+
+            alertDiv.appendChild(message);
+            alertDiv.appendChild(reloadButton);
+            alertDiv.appendChild(cancelButton);
+
+            document.body.appendChild(alertDiv);
+        }
+    }
+
+    setInterval(checkCookies, 1000);
 }
 
 const waitForElement = (selector) => {
