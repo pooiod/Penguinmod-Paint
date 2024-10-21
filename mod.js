@@ -6,14 +6,14 @@ function extrabuttons() { document.title = newtitle;
 
     document.querySelector("#app > div").style.minWidth = "750px";
 
-    const detailArea = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp');
-    const selectorWrapper = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp');
+    // const detailArea = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp');
+    // const selectorWrapper = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp');
     
-    detailArea.addEventListener('click', (event) => {
-        if (event.clientX <= detailArea.getBoundingClientRect().left + 10) {
-            selectorWrapper.style.display ? selectorWrapper.removeAttribute('style') : selectorWrapper.style.display = 'none';
-        }
-    });    
+    // detailArea.addEventListener('click', (event) => {
+    //     if (event.clientX <= detailArea.getBoundingClientRect().left + 10) {
+    //         selectorWrapper.style.display ? selectorWrapper.removeAttribute('style') : selectorWrapper.style.display = 'none';
+    //     }
+    // });    
 
     var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" class="settings_button_2ovv0"><b>Open addons</b></button>';
 
