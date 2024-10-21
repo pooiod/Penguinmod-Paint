@@ -1,11 +1,18 @@
 function makecards() {
-    createCard(
-        "AI image generator",
-        "Adds an item in the \"new image\" menu to generate an image with AI.",
-        "Pooiod7, MubiLop",
-        "This addon may not always work, as it uses an external api",
-        "//penguinpaint.pages.dev/addons/imageai.js"
-    );
+    fetch('https://penguinpaint.pages.dev/addons/addons.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(addon => {
+            createCard(
+                addon.name,
+                addon.description,
+                addon.authors.join(', '),
+                addon.note,
+                addon.url
+            );
+        });
+    })
+    .catch(error => console.error('Error fetching addons:', error));
 }
 
 var selectors = [
