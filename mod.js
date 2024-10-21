@@ -222,7 +222,7 @@ function openPaint() {
     
     document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden > div > div.gui_stage-and-target-wrapper_69KBf.box_box_2jjDp > div.stage-wrapper_stage-wrapper_2bejr.box_box_2jjDp > div:nth-child(1) > div > div > div.stage-header_stage-size-row_14N65').style.display = 'none';
     
-    setInterval(() => {
+    setInterval(() => { // if the editor is unloaded, this code can't recover.
         if (document.querySelector('#app > div > div.interface_menu_3K-Q2 > div > div.menu-bar_main-menu_3wjWH > div:nth-child(4) > span > div')) {
             fatalError("Error: editor unloaded");
         }
