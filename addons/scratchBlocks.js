@@ -17,11 +17,20 @@ addImageButton(
       wrapper.style.top = '50%';
       wrapper.style.left = '50%';
       wrapper.style.transform = 'translate(-50%, -50%)';
-      wrapper.style.backgroundColor = '#fff';
+    //   wrapper.style.backgroundColor = '#fff';
       wrapper.style.padding = '20px';
       wrapper.style.borderRadius = '8px';
       wrapper.style.width = '400px';
       wrapper.style.border = '4px solid rgba(255, 255, 255, 0.25)';
+
+	  const modal = document.createElement('div');
+	  modal.style.backgroundColor = '#fff';
+	  modal.style.padding = '30px';
+	  modal.style.borderRadius = '10px';
+	  modal.style.width = '300px';
+	  modal.style.textAlign = 'center';
+	  
+	  wrapper.appendChild(modal);
 
       // Create title
       const title = document.createElement('h3');
@@ -41,14 +50,14 @@ addImageButton(
       textInput.style.border = '1px solid #ccc';
       textInput.style.borderRadius = '5px';
       textInput.style.resize = 'none';
-      wrapper.appendChild(textInput);
+      modal.appendChild(textInput);
 
       // Create dropdown for style selection
       const styleLabel = document.createElement('label');
       styleLabel.textContent = 'Style:';
       styleLabel.style.display = 'block';
       styleLabel.style.marginBottom = '5px';
-      wrapper.appendChild(styleLabel);
+      modal.appendChild(styleLabel);
 
       const styleDropdown = document.createElement('select');
       const styles = ['Scratch2', 'Scratch3'];
@@ -64,14 +73,14 @@ addImageButton(
       styleDropdown.style.border = '1px solid #ccc';
       styleDropdown.style.borderRadius = '5px';
       styleDropdown.style.marginBottom = '20px';
-      wrapper.appendChild(styleDropdown);
+      modal.appendChild(styleDropdown);
 
       // Create dropdown for style selection
       const formatLabel = document.createElement('label');
       formatLabel.textContent = 'Format:';
       formatLabel.style.display = 'block';
       formatLabel.style.marginBottom = '5px';
-      wrapper.appendChild(formatLabel);
+      modal.appendChild(formatLabel);
 
       const formatDropdown = document.createElement('select');
       const formats = ['bitmap', 'svg'];
@@ -87,7 +96,7 @@ addImageButton(
       formatDropdown.style.border = '1px solid #ccc';
       formatDropdown.style.borderRadius = '5px';
       formatDropdown.style.marginBottom = '20px';
-      wrapper.appendChild(formatDropdown);
+      modal.appendChild(formatDropdown);
 
       // Create button container
       const buttonContainer = document.createElement('div');
@@ -130,7 +139,7 @@ addImageButton(
       });
       buttonContainer.appendChild(confirmButton);
 
-      wrapper.appendChild(buttonContainer);
+      modal.appendChild(buttonContainer);
       overlay.appendChild(wrapper);
       document.body.appendChild(overlay);
 
