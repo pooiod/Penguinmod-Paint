@@ -17,7 +17,6 @@ addImageButton(
       wrapper.style.top = '50%';
       wrapper.style.left = '50%';
       wrapper.style.transform = 'translate(-50%, -50%)';
-    //   wrapper.style.backgroundColor = '#fff';
       wrapper.style.padding = '0px';
       wrapper.style.borderRadius = '13px';
       wrapper.style.width = '400px';
@@ -27,7 +26,7 @@ addImageButton(
 	  modal.style.backgroundColor = '#fff';
 	  modal.style.padding = '30px';
 	  modal.style.borderRadius = '10px';
-	  modal.style.padding = '0px';
+	  modal.style.padding = '20px';
 	  modal.style.width = '100%';
 	  modal.style.textAlign = 'center';
 	  
