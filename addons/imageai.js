@@ -49,14 +49,22 @@ gptimage.generate = async function(prompt, model) {
       console.error("Image Generator Error: ", error.message);
       return "https://dummyimage.com/400x200/fff/000&text=Error generating image: " + error.message;
     });
-  }
+}
+
+function pngToSVG(pngBase64, width, height) {
+    const svgString = `
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+    <image href="${pngBase64}" width="${width}" height="${height}"/>
+</svg>`;
+    return `data:image/svg+xml;base64,${btoa(svgString)}`;
+}
 
 addImageButton(
     'static/assets/94b06fb716871f81bec601724e29a457.svg',
     async () => { 
         var prompt = "car";
         gptimage.generate("prompt").then(function(image){
-            addImage(prompt, image);
+            addImage(prompt, pngToSVG(image, 300, 300));
         });
     }
 );

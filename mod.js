@@ -237,7 +237,7 @@ window.setSize = function(width, height) {
 window.addImage = function(name, url) {
     runWithScratch(`
         function importImage(TEXT) {
-          Scratch.fetch(TEXT)
+          fetch(TEXT)
             .then((r) => r.arrayBuffer())
             .then((arrayBuffer) => {
               const storage = vm.runtime.storage;
