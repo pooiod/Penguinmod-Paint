@@ -73,12 +73,12 @@ addImageButton(
       wrapper.appendChild(formatLabel);
 
       const formatDropdown = document.createElement('select');
-      const formats = ['svg', 'png'];
+      const formats = ['bitmap', 'svg'];
       formats.forEach(style => {
           const option = document.createElement('option');
           option.value = style;
           option.textContent = style;
-          if (style === 'png') option.selected = true;
+          if (style === 'bitmap') option.selected = true;
           formatDropdown.appendChild(option);
       });
       formatDropdown.style.width = '100%';
@@ -138,7 +138,7 @@ addImageButton(
           const scratchCode = textInput.value || textInput.placeholder;
           const selectedStyle = styleDropdown.value;
           document.body.removeChild(overlay);
-		  addBlocks(scratchCode, selectedStyle);
+		  addBlocks(scratchCode, selectedStyle, formatDropdown.value);
         //   console.log('Scratchblocks code:', scratchCode);
         //   console.log('Selected style:', selectedStyle);
       });
@@ -149,7 +149,7 @@ addImageButton(
     }
 );
 
-function addBlocks(code, style) {
+function addBlocks(code, style, format) {
 
 window.runWithScratch(`
     function makestackSVG(type, blocks) {
@@ -172,27 +172,31 @@ window.runWithScratch(`
       importSVG(docView.exportSVG(), "stack1");
     }
 
-	makestackSVG(\`${style}\`, \`${code}\`)
-
-    function makestackPNG(args, util) {
+    function makestackPNG(args) {
       var style;
-      if (args.type == "sb2") {
+      if (type == "Scratch2") {
         style = "scratch2";
-      } else if (args.type == "sb3") {
+      } else if (type == "Scratch3") {
           style = "scratch3";
       } else {
           style = "scratch3-high-contrast";
       }
-      var sblocks = args.blocks.replace(/\\\\n/g, "\\n");
+      var sblocks = blocks.replace(/\\\\n/g, "\\n");
 
       let doc = scratchblocks.module.parse(sblocks, { lang: "en", style: style, scale: 2 });
       let docView = scratchblocks.module.newView(doc, { style: style, scale: 2 });
       docView.render();
 
       svgToPng(docView.exportSVGString(), (imgData) => {
-        importPNG({"TEXT": imgData, "NAME": "stack1"}, util);
+        importPNG({"TEXT": imgData, "NAME": "stack1"});
       });
     }
+
+	if (${format == "svg"}) {
+		makestackSVG(\`${style}\`, \`${code}\`);
+	} else {
+		makestackPNG(\`${style}\`, \`${code}\`);
+	}
 
   function importSVG(TEXT, NAME) {
     Scratch.fetch(TEXT)
