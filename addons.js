@@ -1,7 +1,7 @@
 function makecards() {
     createCard(
         "AI image generator",
-        "Generate images with AI",
+        "Adds an item in the \"new image\" menu to generate an image with AI.",
         "Pooiod7, MubiLop",
         "This addon may not always work, as it uses an external api",
         "//penguinpaint.pages.dev/addons/imageai.js"
