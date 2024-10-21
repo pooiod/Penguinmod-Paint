@@ -508,8 +508,8 @@ const waitForElement = (selector) => {
                                     setSize(640, 360);
                                 } else {
                                     let size = new URL(window.location.href).searchParams.get('size').split('x');
-                                    window.stageWidth = size[0];
-                                    window.stageHeight = size[1];                                    
+                                    window.stageWidth = size[0]*2;
+                                    window.stageHeight = size[1]*2;                                    
                                 }
                             } catch(err) {
                                 console.warn(err);
