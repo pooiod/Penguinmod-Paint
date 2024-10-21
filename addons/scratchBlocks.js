@@ -138,7 +138,7 @@ addImageButton(
           const scratchCode = textInput.value || textInput.placeholder;
           const selectedStyle = styleDropdown.value;
           document.body.removeChild(overlay);
-		  addBlocks(scratchCode, selectedStyle, formatDropdown.value);
+		  addBlocks(scratchCode.replace("`", "ˋ"), selectedStyle, formatDropdown.value);
         //   console.log('Scratchblocks code:', scratchCode);
         //   console.log('Selected style:', selectedStyle);
       });
