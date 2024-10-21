@@ -3,7 +3,7 @@
         "id": "//pooiod7.neocities.org/projects/scripthub/scripts/eruda.js",
         "name": "Dev console",
         "description": "Adds inspect element with CTRL + SHIFT + I",
-        "authors": ["Pooiod7", "MubiLop"],
+        "authors": ["Pooiod7"],
         "note": "This is for dev",
         "hidden": true
     },
@@ -19,8 +19,8 @@
         "id": "scratchBlocks",
         "name": "Scratchblocks generator",
         "description": "Adds an item in the \"new image\" menu to generate scratchblocks markdown as images",
-        "authors": ["Pooiod7", "MubiLop"],
-        "note": "This addon is a work in progress, and may not always work as intended",
+        "authors": ["Pooiod7"],
+        "note": "",
         "hidden": false
     }
 ]

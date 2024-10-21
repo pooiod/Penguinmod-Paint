@@ -272,7 +272,7 @@ window.fitToCanvas = async function(url) {
       };
   
       img.onerror = () => {
-        reject(new Error("Could not load image"));
+        resolve(url);
       };
   
       img.src = url;
