@@ -56,25 +56,7 @@ addImageButton(
     async () => { 
         var prompt = "car";
         gptimage.generate("prompt").then(function(image){
-            runWithScratch(`
-    function importImage(TEXT) {
-      Scratch.fetch(TEXT)
-        .then((r) => r.arrayBuffer())
-        .then((arrayBuffer) => {
-          const storage = vm.runtime.storage;
-          vm.addCostume("Sprite1.PNG", {
-            name: "${prompt.replace('"', '/"')}",
-            asset: new storage.Asset(
-              storage.AssetType.ImageBitmap,
-              null,
-              storage.DataFormat.PNG,
-              new Uint8Array(arrayBuffer),
-              true
-            ),
-          });
-        });
-    } importImage("${image}");
-            `);
+            addImage(prompt, image);
         });
     }
 );

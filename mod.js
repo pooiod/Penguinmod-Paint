@@ -234,6 +234,28 @@ window.setSize = function(width, height) {
     runWithScratch(`Scratch.vm.setStageSize(${width/2}, ${height/2})`);
 }
 
+window.addImage = function(name, url) {
+    runWithScratch(`
+        function importImage(TEXT) {
+          Scratch.fetch(TEXT)
+            .then((r) => r.arrayBuffer())
+            .then((arrayBuffer) => {
+              const storage = vm.runtime.storage;
+              vm.addCostume("${name.replace('"', '/"')}.PNG", {
+                name: "${name.replace('"', '/"')}",
+                asset: new storage.Asset(
+                  storage.AssetType.ImageBitmap,
+                  null,
+                  storage.DataFormat.PNG,
+                  new Uint8Array(arrayBuffer),
+                  true
+                ),
+              });
+            });
+        } importImage("${url}");
+    `);
+}
+
 window.runWithScratch = function(js) {
     document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
     document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span').click();
