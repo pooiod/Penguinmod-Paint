@@ -19,6 +19,7 @@ function extrabuttons() { document.title = newtitle;
     // });    
 
     if (document.getElementById("addonsbutton")) return;
+    window.postMessage("button reload", "*");
 
     var buttonHTML = '<button style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;" id="addonsbutton" class="settings_button_2ovv0"><b>Open addons</b></button>';
 
