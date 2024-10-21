@@ -247,8 +247,7 @@ window.runWithScratch(`
       svgImage.src = svgUrl;
   }
   
-  function importPNG({ TEXT, NAME },util) {
-    const targetId = util.target.id;
+  function importPNG({ TEXT, NAME }) {
     Scratch.fetch(TEXT)
       .then((r) => r.arrayBuffer())
       .then((arrayBuffer) => {
@@ -265,7 +264,7 @@ window.runWithScratch(`
               asset: asset,
               name: NAME
           };
-          vm.addCostume(newCostumeObject.md5, newCostumeObject, targetId);
+          vm.addCostume(newCostumeObject.md5, newCostumeObject);
       });
   }
 
