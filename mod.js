@@ -372,6 +372,7 @@ const waitForElement = (selector) => {
                         faviconlink.type = 'image/x-icon';
                         faviconlink.href = 'https://penguinpaint.pages.dev/icons/favicon.png';
                         document.head.appendChild(faviconlink);
+                        insertAddons();
                     } catch(err) {
                         setTimeout(() => {
                             try {
