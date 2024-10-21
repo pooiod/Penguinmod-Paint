@@ -1,18 +1,18 @@
 [
     {
-        "id": "imageai",
-        "name": "AI image generator",
-        "description": "Adds an item in the \"new image\" menu to generate an image with AI.",
-        "authors": ["Pooiod7", "MubiLop"],
-        "note": "This addon is experimental, and may not always work as intended",
-        "hidden": false
-    },
-    {
         "id": "//pooiod7.neocities.org/projects/scripthub/scripts/eruda.js",
         "name": "Dev console",
         "description": "Adds inspect element with CTRL + SHIFT + I",
         "authors": ["Pooiod7", "MubiLop"],
         "note": "This is for dev",
         "hidden": true
+    },
+    {
+        "id": "imageai",
+        "name": "AI image generator",
+        "description": "Adds an item in the \"new image\" menu to generate an image with AI.",
+        "authors": ["Pooiod7", "MubiLop"],
+        "note": "This addon is experimental, and may not always work as intended",
+        "hidden": false
     }
 ]
