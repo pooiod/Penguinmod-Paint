@@ -270,11 +270,10 @@ window.runWithScratch(`
       });
   }
 
-
 `);
 }
 
-  // Scratchblocks
+  // Scratchblocks lib
 
   let scratchblocks = {};
   scratchblocks.init = () => {
