@@ -172,7 +172,7 @@ window.runWithScratch(`
       importSVG(docView.exportSVG(), "stack1");
     }
 
-    function makestackPNG(args) {
+    function makestackPNG(type, blocks) {
       var style;
       if (type == "Scratch2") {
         style = "scratch2";
