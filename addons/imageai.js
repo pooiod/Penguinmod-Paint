@@ -74,9 +74,9 @@ async function resizeImage(url, width, height) {
         img.src = url;
     });
 }
-
+//yeetyourfiles.lol/download/9a84cf0b-4ad3-42f9-b0b4-4f8d803e073a
 addImageButton(
-    '//yeetyourfiles.lol/download/9a84cf0b-4ad3-42f9-b0b4-4f8d803e073a',
+    '//yeetyourfiles.lol/download/15d98037-8f90-41cd-929f-8768b99aa786',
     async () => {
         // Create overlay
         const overlay = document.createElement('div');
