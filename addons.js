@@ -1,10 +1,10 @@
 function makecards() {
     createCard(
-        "Helper GPT",
-        "Adds a Chat GPT sidebar",
+        "AI image generator",
+        "Generate images with AI",
         "Pooiod7",
-        "Press CTRL + G to open the side bar",
-        false, "//pooiod7.neocities.org/snips/helperGPT.js"
+        "This addon is not recomended, and may not always work as intended",
+        false, "////penguinpaint.pages.dev/addons/imageai.js"
     );
 }
 
