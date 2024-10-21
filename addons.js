@@ -125,7 +125,7 @@ function createCard(name, desc, credits, notice, isEnabled, scriptLink) {
 
     function setCookie(name, value) {
         document.cookie = `${name}=${value}; path=/;`;
-    }
+    }    
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
