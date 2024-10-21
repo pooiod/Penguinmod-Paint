@@ -10,7 +10,9 @@ window.stageHeight = 360;
 
 window.fatalError = function(err) {
     err = err || "Error: unknown error"
-    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
+    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b>
+    <br>${err}<br>
+    <button onclick="window.open('https://penguinpaint.pages.dev/addons')">Open Addons</button>`;
     document.body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00a6d9;">${error}</div>`;
 }
 
@@ -305,6 +307,12 @@ function extrabuttons() { document.title = newtitle;
             });
         });
     }
+}
+
+fatalError = function(err) {
+    err = err || "Error: unknown error"
+    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
+    document.body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00a6d9;">${error}</div>`;
 }
 
 function openPaint() {
