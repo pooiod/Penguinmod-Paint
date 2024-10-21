@@ -272,7 +272,7 @@ window.addImage = function(name, url) {
 
 window.runWithScratch = function(js) {
     document.querySelector('#react-tabs-1 > div.gui_extension-button-container_b4rCs.box_box_2jjDp > button').click();
-    document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span').click();
+    (document.querySelector('body > div.ReactModalPortal > div > div > div > div.library_library-content-wrapper_1FTPT > div.library_library-filter-bar_1xjYC > div:nth-child(3) > span') || document.querySelector("body > div.ReactModalPortal > div > div > div > div.library_library-scroll-grid_1jyXm.library_withFilterBar_26Opm > div:nth-child(14)")).click();
     document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > div.custom-extension-modal_type-selector-container_2Fag3 > div:nth-child(3)').click();
 
     let input = document.querySelector('body > div.ReactModalPortal > div > div > div > div.custom-extension-modal_body_2iQF3.box_box_2jjDp > textarea');
