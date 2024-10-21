@@ -8,6 +8,14 @@
         "hidden": true
     },
     {
+        "id": "backpack",
+        "name": "Backpack",
+        "description": "Adds in a backpack at the top of the screen, to keep image snips for later.",
+        "authors": ["Pooiod7"],
+        "note": "This addon is experimental, and may not always work as intended",
+        "hidden": false
+    },
+    {
         "id": "imageai",
         "name": "AI image generator",
         "description": "Adds an item in the \"new image\" menu to generate an image with AI.",
