@@ -8,7 +8,7 @@
 ## Overview
 
 Penguin Paint is designed as a **Live Injection Mod** of PenguinMod. It loads the core PenguinMod functionality and injects its own code, ensuring that users always have access to the latest features and improvements. 
-This may be slower, but it ensures that all PenguinMod updates are always available in Penguin Paint, and it means I can get away with writing this in static html.
+This may be slower, but it ensures that all PenguinMod updates are always available in Penguin Paint, and it means I don't need to manage as much code.
 
 ### Key Features
 
