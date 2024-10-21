@@ -5,7 +5,7 @@
 > This project is a fresh one, so it **will** have many bugs.
 > Please report them in the [issues](https://github.com/pooiod/Penguinmod-Paint/issues) tab
 
-![PenguinPaint](frontpage.svg)
+![This image was made in Penguin Paint](frontpage.svg)
 
 ## Overview
 
