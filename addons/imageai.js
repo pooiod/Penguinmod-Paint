@@ -115,7 +115,7 @@ addImageButton(
 
         const promptInput = document.createElement('input');
         promptInput.type = 'text';
-        promptInput.placeholder = 'A penguin in space';
+        promptInput.placeholder = 'Penguin in Space';
         promptInput.style.margin = '10px 0';
         promptInput.style.padding = '10px';
         promptInput.style.width = '100%';

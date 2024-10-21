@@ -2,9 +2,9 @@ function makecards() {
     createCard(
         "AI image generator",
         "Generate images with AI",
-        "Pooiod7",
-        "This addon is not recomended, and may not always work as intended",
-        false, "//penguinpaint.pages.dev/addons/imageai.js"
+        "Pooiod7, MubiLop",
+        "This addon may not always work, as it uses an external api",
+        "//penguinpaint.pages.dev/addons/imageai.js"
     );
 }
 
@@ -118,7 +118,7 @@ setTimeout(() => {
     makecards();
 }, 1000); 
 
-function createCard(name, desc, credits, notice, isEnabled, scriptLink) {
+function createCard(name, desc, credits, notice, scriptLink) {
     const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2)');
     if (!container) return;
 
@@ -231,7 +231,7 @@ function createCard(name, desc, credits, notice, isEnabled, scriptLink) {
 
     details.appendChild(description);
     details.appendChild(creditContainer);
-    details.appendChild(noticeContainer);
+    if (notice) details.appendChild(noticeContainer);
 
     card.appendChild(header);
     card.appendChild(details);
