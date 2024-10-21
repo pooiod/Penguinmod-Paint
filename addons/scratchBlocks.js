@@ -188,7 +188,9 @@ window.runWithScratch(`
       docView.render();
 
       svgToPng(docView.exportSVGString(), (imgData) => {
-        importPNG({"TEXT": imgData, "NAME": "stack1"});
+		fitToCanvas(imgData).then((imgData) => {
+			importPNG({"TEXT": imgData, "NAME": "stack1"});
+		});
       });
     }
 
