@@ -62,7 +62,8 @@ var selectors = [
     "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(60)",
     "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(3)",
     "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(1) > button",
-    "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2) > button"
+    "#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2) > button",
+    "#app > div > div.settings_addons_2LLFF > div > div.settings_footer-buttons_xTSXH"
 ];
 
 setTimeout(() => {
@@ -95,17 +96,17 @@ setTimeout(() => {
     const addonsElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > footer > span');
     if (addonsElement && addonsElement.textContent !== "Addons version 7fcab09") {
         addonsElement.textContent = "Addons out of date";
-    } else {
+    }/** else {
         addonsElement.innerHTML = "Penguin Paint is <a src='https://github.com/pooiod/Penguinmod-Paint'>open source</a>!";
-    }
+    }*/
 
-    const newButton = document.createElement('button');
-    newButton.className = 'settings_button_2ovv0';
-    newButton.textContent = 'Open on github';
-    newButton.onclick = () => window.location.href = 'https://github.com/pooiod/Penguinmod-Paint';
+    // const newButton = document.createElement('button');
+    // newButton.className = 'settings_button_2ovv0';
+    // newButton.textContent = 'Open on github';
+    // newButton.onclick = () => window.location.href = 'https://github.com/pooiod/Penguinmod-Paint';
     
-    const referenceElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div.settings_footer-buttons_xTSXH > button.settings_button_2ovv0.settings_reset-all-button_2Q-Zi');
-    referenceElement.parentNode.insertBefore(newButton, referenceElement);    
+    // const referenceElement = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div.settings_footer-buttons_xTSXH > button.settings_button_2ovv0.settings_reset-all-button_2Q-Zi');
+    // referenceElement.parentNode.insertBefore(newButton, referenceElement);    
     
     selectors.forEach(selector => {
         const element = document.querySelector(selector);
