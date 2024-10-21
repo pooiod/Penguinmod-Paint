@@ -55,7 +55,7 @@ addImageButton(
           const option = document.createElement('option');
           option.value = style;
           option.textContent = style;
-          if (style === 'Scratch3') option.selected = true; // Default to Scratch3
+          if (style === 'Scratch3') option.selected = true;
           styleDropdown.appendChild(option);
       });
       styleDropdown.style.width = '100%';
@@ -64,6 +64,29 @@ addImageButton(
       styleDropdown.style.borderRadius = '5px';
       styleDropdown.style.marginBottom = '20px';
       wrapper.appendChild(styleDropdown);
+
+      // Create dropdown for style selection
+      const formatLabel = document.createElement('label');
+      formatLabel.textContent = 'Format:';
+      formatLabel.style.display = 'block';
+      formatLabel.style.marginBottom = '5px';
+      wrapper.appendChild(formatLabel);
+
+      const formatDropdown = document.createElement('select');
+      const formats = ['svg', 'png'];
+      styles.forEach(style => {
+          const option = document.createElement('option');
+          option.value = style;
+          option.textContent = style;
+          if (style === 'svg') option.selected = true;
+          formatDropdown.appendChild(option);
+      });
+      formatDropdown.style.width = '100%';
+      formatDropdown.style.padding = '8px';
+      formatDropdown.style.border = '1px solid #ccc';
+      formatDropdown.style.borderRadius = '5px';
+      formatDropdown.style.marginBottom = '20px';
+      wrapper.appendChild(formatDropdown);
 
       // Create button container
       const buttonContainer = document.createElement('div');
@@ -129,7 +152,6 @@ addImageButton(
 function addBlocks(code, style) {
 
 window.runWithScratch(`
-
     function makestackSVG(type, blocks) {
       var style;
       if (type == "Scratch2") {
