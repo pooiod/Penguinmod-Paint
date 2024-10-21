@@ -22,7 +22,7 @@ function extrabuttons() { document.title = newtitle;
 
         var button = document.querySelector('.settings_button_2ovv0');
         button.addEventListener('click', function() {
-            window.open("https://penguinmod-paint.pages.dev/addons", "_blank", "width=520,height=700,left=" + (screen.width / 2 - 250) + ",top=" + (screen.height / 2 - 350));
+            window.open("https://penguinpaint.pages.dev/addons", "_blank", "width=520,height=700,left=" + (screen.width / 2 - 250) + ",top=" + (screen.height / 2 - 350));
         });
 
         buttonHTML = '<button class="settings_button_2ovv0 buttonsize" style="background: #00c3ff; color: #fff; border: none; border-radius: 5px; padding: 10px;"><b>Set canvas size</b></button>';
@@ -305,8 +305,8 @@ function showLoader() {
             width: 100px;
             height: 100px;
             background-color: #fff;
-            mask: url('https://penguinmod-paint.pages.dev/loader.gif') no-repeat center / contain;
-            -webkit-mask: url('https://penguinmod-paint.pages.dev/loader.gif') no-repeat center / contain;
+            mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
+            -webkit-mask: url('https://penguinpaint.pages.dev/loader.gif') no-repeat center / contain;
             animation: skewAnimation 1.5s ease-in-out infinite;
         }
         @keyframes skewAnimation {
