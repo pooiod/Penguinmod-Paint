@@ -74,11 +74,11 @@ addImageButton(
 
       const formatDropdown = document.createElement('select');
       const formats = ['svg', 'png'];
-      styles.forEach(style => {
+      formats.forEach(style => {
           const option = document.createElement('option');
           option.value = style;
           option.textContent = style;
-          if (style === 'svg') option.selected = true;
+          if (style === 'png') option.selected = true;
           formatDropdown.appendChild(option);
       });
       formatDropdown.style.width = '100%';
