@@ -553,6 +553,7 @@ const waitForElement = (selector) => {
                     document.querySelector('#react-tabs-2').click();
                     loadingScreen.remove();
                     try {
+                        document.querySelector('#react-tabs-2').click();
                         extrabuttons();
                         if (!new URL(window.location.href).searchParams.get('size')) {
                             setSize(640, 360);
@@ -567,6 +568,7 @@ const waitForElement = (selector) => {
                     } catch(err) {
                         setTimeout(() => {
                             try {
+                                document.querySelector('#react-tabs-2').click();
                                 insertAddons();
                                 extrabuttons();
                                 if (!new URL(window.location.href).searchParams.get('size')) {
@@ -578,6 +580,7 @@ const waitForElement = (selector) => {
                                 }
                             } catch(err) {
                                 console.warn(err);
+                                document.querySelector('#react-tabs-2').click();
                                 alert("Unable to load extra ui");
                             }
                         }, 2000); 
