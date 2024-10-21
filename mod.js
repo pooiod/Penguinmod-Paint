@@ -162,7 +162,8 @@ function extrabuttons() { document.title = newtitle;
 }
 
 function fatalError(err) {
-    var error = `We had an unexpected fatal editor error!<br>${err}<br>Please restart Penguin Paint :(`;
+    err = err || "Error: unknown error"
+    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
     document.body.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>`;
 }
 
