@@ -309,12 +309,6 @@ function extrabuttons() { document.title = newtitle;
     }
 }
 
-fatalErrorInt = function(err) {
-    err = err || "Error: unknown error"
-    var error = `<b>Penguin Paint had an unexpected fatal error, and could not recover</b><br>${err}`;
-    document.body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00a6d9;">${error}</div>`;
-}
-
 function openPaint() {
     // if (document.title.split(" - ")[1]) {
     //     document.title = document.title.split(" - ")[0] + newtitle;
@@ -374,6 +368,11 @@ function openPaint() {
     setInterval(() => { // if the editor is unloaded, this code can't recover.
         if (document.querySelector('#app > div > div.interface_menu_3K-Q2 > div > div.menu-bar_main-menu_3wjWH > div:nth-child(4) > span > div')) {
             fatalError("Error: editor unloaded");
+        } if (document.querySelector('.blocklyFlyout')) {
+            if (document.querySelector('.blocklyFlyout').style.display == "block") {
+                document.querySelector('#react-tabs-2').click();
+                extrabuttons();
+            }
         }
     }, 1000);
     
