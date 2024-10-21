@@ -76,7 +76,7 @@ async function resizeImage(url, width, height) {
 }
 
 addImageButton(
-    'static/assets/94b06fb716871f81bec601724e29a457.svg',
+    '//yeetyourfiles.lol/download/9a84cf0b-4ad3-42f9-b0b4-4f8d803e073a',
     async () => {
         // Create overlay
         const overlay = document.createElement('div');
