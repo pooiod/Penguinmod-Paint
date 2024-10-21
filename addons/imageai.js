@@ -170,7 +170,7 @@ addImageButton(
 
         // Event listeners for buttons
         confirmButton.addEventListener('click', () => {
-            const prompt = promptInput.value;
+            var prompt = promptInput.value;
             if (!prompt) {
                 prompt = promptInput.placeholder;
             }
