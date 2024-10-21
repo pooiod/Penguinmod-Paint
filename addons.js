@@ -131,10 +131,10 @@ function createCard(name, desc, credits, notice, scriptLink, hidden) {
     if (!container) return;
 
     const cardId = `card_${encodeURIComponent(scriptLink)}`;
-
+    
     function setCookie(name, value) {
-        document.cookie = `${name}=${value}; path=/;`;
-    }    
+        document.cookie = `${name}=${value}; path=/; max-age=99999999;`;
+    }
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
