@@ -114,126 +114,126 @@ setTimeout(() => {
         }
     });
 
-    function createCard(name, desc, credits, notice, isEnabled, scriptLink) {
-        const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2)');
-        if (!container) return;
-    
-        const cardId = `card_${encodeURIComponent(scriptLink)}`;
-    
-        function setCookie(name, value) {
-            document.cookie = `${name}=${value}; path=/;`;
-        }
-    
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return null;
-        }
-    
-        const savedState = getCookie(cardId);
-        const initialEnabled = savedState === 'on' ? true : savedState === 'off' ? false : isEnabled;
-    
-        const card = document.createElement('div');
-        card.className = 'settings_addon_3Oi_z';
-    
-        const header = document.createElement('div');
-        header.className = 'settings_addon-header_271wJ';
-    
-        const label = document.createElement('label');
-        label.className = 'settings_addon-title_6MhRl';
-    
-        const switchDiv = document.createElement('div');
-        switchDiv.className = 'settings_addon-switch_2bf3g';
-    
-        const button = document.createElement('button');
-        button.className = 'settings_switch_2V1f5';
-        button.setAttribute('state', initialEnabled ? 'on' : 'off');
-        button.setAttribute('role', 'checkbox');
-        button.setAttribute('aria-checked', initialEnabled ? 'true' : 'false');
-        button.tabIndex = 0;
-        button.addEventListener('click', () => {
-            const isChecked = button.getAttribute('state') === 'on';
-            button.setAttribute('state', isChecked ? 'off' : 'on');
-            button.setAttribute('aria-checked', !isChecked);
-            card.classList.toggle('settings_addon-dirty_2o20T');
-            details.style.display = isChecked ? 'none' : 'block';
-            setCookie(cardId, isChecked ? 'off' : 'on');
-        });
-        switchDiv.appendChild(button);
-    
-        const img = document.createElement('img');
-        img.className = 'settings_extension-image_1HlEn';
-        img.src = 'static/assets/6f52bcc0310181641bac6fec51c69e13.svg';
-        img.draggable = false;
-        img.alt = '';
-    
-        const titleText = document.createElement('div');
-        titleText.className = 'settings_addon-title-text_3QjlP';
-        titleText.textContent = name;
-    
-        label.appendChild(switchDiv);
-        label.appendChild(img);
-        label.appendChild(titleText);
-    
-        const tagContainer = document.createElement('span');
-        tagContainer.className = 'settings_tag-container_3yFc4';
-    
-        const operations = document.createElement('div');
-        operations.className = 'settings_addon-operations_28nBd';
-    
-        header.appendChild(label);
-        header.appendChild(tagContainer);
-        header.appendChild(operations);
-    
-        const details = document.createElement('div');
-        details.className = 'settings_addon-details_2CKwd';
-        details.style.display = initialEnabled ? 'block' : 'none';
-    
-        const description = document.createElement('div');
-        description.className = 'settings_description_2MbZo';
-        description.textContent = desc;
-    
-        const creditContainer = document.createElement('div');
-        creditContainer.className = 'settings_credit-container_2mHq7';
-    
-        const creditTitle = document.createElement('span');
-        creditTitle.className = 'settings_credit-title_3f-yX';
-        creditTitle.textContent = 'Credits:';
-    
-        const creditText = document.createElement('span');
-        creditText.className = 'settings_credit_3grR6';
-        creditText.textContent = credits;
-    
-        creditContainer.appendChild(creditTitle);
-        creditContainer.appendChild(creditText);
-    
-        const noticeContainer = document.createElement('div');
-        noticeContainer.className = 'settings_notice_2q6Z2';
-    
-        const noticeIconDiv = document.createElement('div');
-        const noticeIcon = document.createElement('img');
-        noticeIcon.className = 'settings_notice-icon_2lAT7';
-        noticeIcon.src = 'static/assets/b987c9e2c37b17bd7c97f1fa47257d7e.svg';
-        noticeIcon.alt = '';
-        noticeIcon.draggable = false;
-        noticeIconDiv.appendChild(noticeIcon);
-    
-        const noticeTextDiv = document.createElement('div');
-        noticeTextDiv.textContent = notice;
-    
-        noticeContainer.appendChild(noticeIconDiv);
-        noticeContainer.appendChild(noticeTextDiv);
-    
-        details.appendChild(description);
-        details.appendChild(creditContainer);
-        details.appendChild(noticeContainer);
-    
-        card.appendChild(header);
-        card.appendChild(details);
-    
-        container.appendChild(card);
-    }
-
     makecards();
 }, 1000); 
+
+function createCard(name, desc, credits, notice, isEnabled, scriptLink) {
+    const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2)');
+    if (!container) return;
+
+    const cardId = `card_${encodeURIComponent(scriptLink)}`;
+
+    function setCookie(name, value) {
+        document.cookie = `${name}=${value}; path=/;`;
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    const savedState = getCookie(cardId);
+    const initialEnabled = savedState === 'on' ? true : savedState === 'off' ? false : isEnabled;
+
+    const card = document.createElement('div');
+    card.className = 'settings_addon_3Oi_z';
+
+    const header = document.createElement('div');
+    header.className = 'settings_addon-header_271wJ';
+
+    const label = document.createElement('label');
+    label.className = 'settings_addon-title_6MhRl';
+
+    const switchDiv = document.createElement('div');
+    switchDiv.className = 'settings_addon-switch_2bf3g';
+
+    const button = document.createElement('button');
+    button.className = 'settings_switch_2V1f5';
+    button.setAttribute('state', initialEnabled ? 'on' : 'off');
+    button.setAttribute('role', 'checkbox');
+    button.setAttribute('aria-checked', initialEnabled ? 'true' : 'false');
+    button.tabIndex = 0;
+    button.addEventListener('click', () => {
+        const isChecked = button.getAttribute('state') === 'on';
+        button.setAttribute('state', isChecked ? 'off' : 'on');
+        button.setAttribute('aria-checked', !isChecked);
+        card.classList.toggle('settings_addon-dirty_2o20T');
+        details.style.display = isChecked ? 'none' : 'block';
+        setCookie(cardId, isChecked ? 'off' : 'on');
+    });
+    switchDiv.appendChild(button);
+
+    const img = document.createElement('img');
+    img.className = 'settings_extension-image_1HlEn';
+    img.src = 'static/assets/6f52bcc0310181641bac6fec51c69e13.svg';
+    img.draggable = false;
+    img.alt = '';
+
+    const titleText = document.createElement('div');
+    titleText.className = 'settings_addon-title-text_3QjlP';
+    titleText.textContent = name;
+
+    label.appendChild(switchDiv);
+    label.appendChild(img);
+    label.appendChild(titleText);
+
+    const tagContainer = document.createElement('span');
+    tagContainer.className = 'settings_tag-container_3yFc4';
+
+    const operations = document.createElement('div');
+    operations.className = 'settings_addon-operations_28nBd';
+
+    header.appendChild(label);
+    header.appendChild(tagContainer);
+    header.appendChild(operations);
+
+    const details = document.createElement('div');
+    details.className = 'settings_addon-details_2CKwd';
+    details.style.display = initialEnabled ? 'block' : 'none';
+
+    const description = document.createElement('div');
+    description.className = 'settings_description_2MbZo';
+    description.textContent = desc;
+
+    const creditContainer = document.createElement('div');
+    creditContainer.className = 'settings_credit-container_2mHq7';
+
+    const creditTitle = document.createElement('span');
+    creditTitle.className = 'settings_credit-title_3f-yX';
+    creditTitle.textContent = 'Credits:';
+
+    const creditText = document.createElement('span');
+    creditText.className = 'settings_credit_3grR6';
+    creditText.textContent = credits;
+
+    creditContainer.appendChild(creditTitle);
+    creditContainer.appendChild(creditText);
+
+    const noticeContainer = document.createElement('div');
+    noticeContainer.className = 'settings_notice_2q6Z2';
+
+    const noticeIconDiv = document.createElement('div');
+    const noticeIcon = document.createElement('img');
+    noticeIcon.className = 'settings_notice-icon_2lAT7';
+    noticeIcon.src = 'static/assets/b987c9e2c37b17bd7c97f1fa47257d7e.svg';
+    noticeIcon.alt = '';
+    noticeIcon.draggable = false;
+    noticeIconDiv.appendChild(noticeIcon);
+
+    const noticeTextDiv = document.createElement('div');
+    noticeTextDiv.textContent = notice;
+
+    noticeContainer.appendChild(noticeIconDiv);
+    noticeContainer.appendChild(noticeTextDiv);
+
+    details.appendChild(description);
+    details.appendChild(creditContainer);
+    details.appendChild(noticeContainer);
+
+    card.appendChild(header);
+    card.appendChild(details);
+
+    container.appendChild(card);
+}
