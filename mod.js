@@ -338,6 +338,38 @@ function showLoader() {
 }
 setTimeout(showLoader, 100); 
 
+window.addImageButton = function(image, callback) {
+    const target = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > div.action-menu_more-buttons-outer_3J9yZ > div');
+    
+    const newDiv = document.createElement('div');
+    const button = document.createElement('button');
+    button.setAttribute('aria-label', tooltip);
+    button.className = 'action-menu_button_1qbot action-menu_more-button_1fMGZ';
+    button.setAttribute('data-tip', tooltip);
+    button.innerHTML = `<img class="action-menu_more-icon_TJUQ7" draggable="false" src="${image}">`;
+
+    // const tooltipDiv = document.createElement('div');
+    // tooltipDiv.className = '__react_component_tooltip action-menu_tooltip_3Bkh5';
+    // tooltipDiv.style.display = 'none'; // Start hidden
+    // tooltipDiv.textContent = tooltip;
+
+    // button.addEventListener('mouseenter', () => {
+    //     tooltipDiv.style.display = 'block';
+    //     tooltipDiv.style.left = '58px'; // Set left position
+    //     tooltipDiv.style.top = `${button.getBoundingClientRect().bottom + window.scrollY}px`; // Set top position below the button
+    // });
+
+    button.addEventListener('mouseleave', () => {
+        tooltipDiv.style.display = 'none';
+    });
+
+    button.addEventListener('click', callback);
+
+    newDiv.appendChild(button);
+    // newDiv.appendChild(tooltipDiv);
+    target.appendChild(newDiv);
+}
+
 function insertAddons() {
     const enabledLinks = document.cookie
         .split('; ')
