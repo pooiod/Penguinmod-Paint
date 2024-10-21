@@ -54,8 +54,8 @@ gptimage.generate = async function(prompt, model) {
 addImageButton(
     'static/assets/94b06fb716871f81bec601724e29a457.svg',
     async () => { 
-        alert('Button clicked!'); 
-        gptimage.generate("cat").then(function(image){
+        var prompt = "car";
+        gptimage.generate("prompt").then(function(image){
             runWithScratch(`
     function importImage(TEXT) {
       Scratch.fetch(TEXT)
@@ -63,7 +63,7 @@ addImageButton(
         .then((arrayBuffer) => {
           const storage = vm.runtime.storage;
           vm.addCostume("Sprite1.PNG", {
-            name: "Sprite1",
+            name: "${prompt.replace('"', '/"')}",
             asset: new storage.Asset(
               storage.AssetType.ImageBitmap,
               null,
@@ -74,7 +74,7 @@ addImageButton(
           });
         });
     } importImage("${image}");
-                `);
+            `);
         });
     }
 );
