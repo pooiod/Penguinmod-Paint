@@ -14,5 +14,13 @@
         "authors": ["Pooiod7", "MubiLop"],
         "note": "This addon is experimental, and may not always work as intended",
         "hidden": false
+    },
+    {
+        "id": "scratchBlocks",
+        "name": "Scratchblocks generator",
+        "description": "Adds an item in the \"new image\" menu to generate scratchblocks markdown as images",
+        "authors": ["Pooiod7", "MubiLop"],
+        "note": "This addon is a work in progress, and may not always work as intended",
+        "hidden": false
     }
 ]
