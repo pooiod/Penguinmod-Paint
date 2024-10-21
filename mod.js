@@ -1,6 +1,8 @@
 var newtitle = "Penguin Paint";
 document.title = newtitle;
 
+// Fun fact: you can load into penguinpaint on penguinmod by loading it as an unsandboxed extension
+
 window.stageWidth = 480;
 window.stageHeight = 360;
 
