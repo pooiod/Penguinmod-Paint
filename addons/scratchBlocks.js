@@ -132,9 +132,9 @@ window.runWithScratch(`
 
     function makestackSVG(type, blocks) {
       var style;
-      if (type == "sb2") {
+      if (type == "Scratch2") {
         style = "scratch2";
-      } else if (type == "sb3") {
+      } else if (type == "Scratch3") {
           style = "scratch3";
       } else {
           style = "scratch3-high-contrast";
@@ -144,6 +144,8 @@ window.runWithScratch(`
       let doc = scratchblocks.module.parse(sblocks, { lang: "en", style: style });
       let docView = scratchblocks.module.newView(doc, { style: style });
       docView.render();
+
+	  console.log(docView.exportSVG());
 
       importSVG({"TEXT": docView.exportSVG(), "NAME": "stack1"});
     }
