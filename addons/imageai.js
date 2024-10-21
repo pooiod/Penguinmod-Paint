@@ -47,7 +47,7 @@ gptimage.generate = async function(prompt, model) {
     })
     .catch(error => {
       console.error("Image Generator Error: ", error.message);
-      return "https://dummyimage.com/300x300/fff/000&text=Error generating image: " + error.message;
+      return "https://dummyimage.com/" + stageWidth + "x" + stageHeight + "/fff/000&text=Error generating image: " + error.message;
     });
 }
 
