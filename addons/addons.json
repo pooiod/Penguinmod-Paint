@@ -1,9 +1,9 @@
 [
     {
+        "id": "imageai",
         "name": "AI image generator",
         "description": "Adds an item in the \"new image\" menu to generate an image with AI.",
         "authors": ["Pooiod7", "MubiLop"],
-        "note": "This addon is experimental, and may not always work as intended",
-        "url": "//penguinpaint.pages.dev/addons/imageai.js"
+        "note": "This addon is experimental, and may not always work as intended"
     }
 ]

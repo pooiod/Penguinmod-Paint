@@ -8,7 +8,7 @@ function makecards() {
                 addon.description,
                 addon.authors.join(', '),
                 addon.note,
-                addon.url
+                "//penguinpaint.pages.dev/addons/" + addon.id + ".js"
             );
         });
     })
