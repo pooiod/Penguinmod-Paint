@@ -139,7 +139,7 @@ window.runWithScratch(`
       } else {
           style = "scratch3-high-contrast";
       }
-      var sblocks = blocks.replace(/\\n/g, "\n");
+      var sblocks = blocks.replace(/\\\n/g, "\\n");
 
       let doc = scratchblocks.module.parse(sblocks, { lang: "en", style: style });
       let docView = scratchblocks.module.newView(doc, { style: style });
