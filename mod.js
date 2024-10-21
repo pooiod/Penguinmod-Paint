@@ -284,7 +284,7 @@ window.runWithScratch = function(js) {
 }
 
 var loadingScreen;
-setTimeout(() => {
+function showLoader() {
     var style = document.createElement('style');
     style.textContent = `
         #paintLoadingScreen {
@@ -335,7 +335,8 @@ setTimeout(() => {
     `;
     
     document.body.appendChild(loadingScreen);
-}, 100); 
+}
+setTimeout(showLoader, 100); 
 
 function insertAddons() {
     const enabledLinks = document.cookie
@@ -390,6 +391,7 @@ function insertAddons() {
             reloadButton.style.cursor = 'pointer';
 
             reloadButton.onclick = function() {
+                showLoader();
                 location.reload();
             };
 
