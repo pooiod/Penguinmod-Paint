@@ -102,24 +102,6 @@ function extrabuttons() { document.title = newtitle;
             buttonContainer.style.justifyContent = 'space-between';
             buttonContainer.style.marginTop = '20px';
 
-            const confirmButton = document.createElement('button');
-            confirmButton.textContent = 'Confirm';
-            confirmButton.style.padding = '10px 15px';
-            confirmButton.style.backgroundColor = '#28a745';
-            confirmButton.style.color = '#fff';
-            confirmButton.style.border = 'none';
-            confirmButton.style.cursor = 'pointer';
-            confirmButton.style.borderRadius = '5px';
-            confirmButton.style.transition = 'background-color 0.3s';
-            
-            confirmButton.addEventListener('mouseenter', () => {
-                confirmButton.style.backgroundColor = '#218838';
-            });
-            confirmButton.addEventListener('mouseleave', () => {
-                confirmButton.style.backgroundColor = '#28a745';
-            });
-            buttonContainer.appendChild(confirmButton);
-
             const cancelButton = document.createElement('button');
             cancelButton.textContent = 'Cancel';
             cancelButton.style.padding = '10px 15px';
@@ -137,6 +119,24 @@ function extrabuttons() { document.title = newtitle;
                 cancelButton.style.backgroundColor = '#dc3545';
             });
             buttonContainer.appendChild(cancelButton);
+
+            const confirmButton = document.createElement('button');
+            confirmButton.textContent = 'Confirm';
+            confirmButton.style.padding = '10px 15px';
+            confirmButton.style.backgroundColor = '#28a745';
+            confirmButton.style.color = '#fff';
+            confirmButton.style.border = 'none';
+            confirmButton.style.cursor = 'pointer';
+            confirmButton.style.borderRadius = '5px';
+            confirmButton.style.transition = 'background-color 0.3s';
+            
+            confirmButton.addEventListener('mouseenter', () => {
+                confirmButton.style.backgroundColor = '#218838';
+            });
+            confirmButton.addEventListener('mouseleave', () => {
+                confirmButton.style.backgroundColor = '#28a745';
+            });
+            buttonContainer.appendChild(confirmButton);
 
             modal.appendChild(buttonContainer);
             overlay.appendChild(wrapper);

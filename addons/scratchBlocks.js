@@ -94,24 +94,6 @@ addImageButton(
       buttonContainer.style.display = 'flex';
       buttonContainer.style.justifyContent = 'space-between';
 
-      // Create confirm button
-      const confirmButton = document.createElement('button');
-      confirmButton.textContent = 'Generate';
-      confirmButton.style.padding = '10px 20px';
-      confirmButton.style.backgroundColor = '#28a745';
-      confirmButton.style.color = '#fff';
-      confirmButton.style.border = 'none';
-      confirmButton.style.cursor = 'pointer';
-      confirmButton.style.borderRadius = '5px';
-      confirmButton.style.transition = 'background-color 0.3s';
-      confirmButton.addEventListener('mouseenter', () => {
-          confirmButton.style.backgroundColor = '#218838';
-      });
-      confirmButton.addEventListener('mouseleave', () => {
-          confirmButton.style.backgroundColor = '#28a745';
-      });
-      buttonContainer.appendChild(confirmButton);
-
       // Create cancel button
       const cancelButton = document.createElement('button');
       cancelButton.textContent = 'Cancel';
@@ -129,6 +111,24 @@ addImageButton(
           cancelButton.style.backgroundColor = '#dc3545';
       });
       buttonContainer.appendChild(cancelButton);
+
+      // Create confirm button
+      const confirmButton = document.createElement('button');
+      confirmButton.textContent = 'Generate';
+      confirmButton.style.padding = '10px 20px';
+      confirmButton.style.backgroundColor = '#28a745';
+      confirmButton.style.color = '#fff';
+      confirmButton.style.border = 'none';
+      confirmButton.style.cursor = 'pointer';
+      confirmButton.style.borderRadius = '5px';
+      confirmButton.style.transition = 'background-color 0.3s';
+      confirmButton.addEventListener('mouseenter', () => {
+          confirmButton.style.backgroundColor = '#218838';
+      });
+      confirmButton.addEventListener('mouseleave', () => {
+          confirmButton.style.backgroundColor = '#28a745';
+      });
+      buttonContainer.appendChild(confirmButton);
 
       wrapper.appendChild(buttonContainer);
       overlay.appendChild(wrapper);
