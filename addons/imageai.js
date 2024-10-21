@@ -56,9 +56,8 @@ addImageButton(
     async () => { 
         alert('Button clicked!'); 
         gptimage.generate("cat").then(function(image){
-            console.log(image);
             runWithScratch(`
-    importImage(TEXT) {
+    function importImage(TEXT) {
       Scratch.fetch(TEXT)
         .then((r) => r.arrayBuffer())
         .then((arrayBuffer) => {
