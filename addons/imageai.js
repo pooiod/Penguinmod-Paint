@@ -51,6 +51,30 @@ gptimage.generate = async function(prompt, model) {
     });
 }
 
+async function resizeImage(url, width, height) {
+    const img = new Image();
+    img.crossOrigin = "Anonymous"; // Handle CORS issues
+
+    return new Promise((resolve, reject) => {
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.drawImage(img, 0, 0, width, height);
+            const resizedImage = canvas.toDataURL(); // Get the resized image as a data URL
+            resolve(resizedImage);
+        };
+
+        img.onerror = () => {
+            reject(new Error("Could not load image"));
+        };
+
+        img.src = url;
+    });
+}
+
 addImageButton(
     'static/assets/94b06fb716871f81bec601724e29a457.svg',
     async () => {
@@ -84,14 +108,14 @@ addImageButton(
         wrapper.appendChild(modal);
 
         const title = document.createElement('h2');
-        title.textContent = 'What image should be generated?';
+        title.textContent = 'What do you want to see?';
         title.style.marginBottom = '20px';
         title.style.color = '#333';
         modal.appendChild(title);
 
         const promptInput = document.createElement('input');
         promptInput.type = 'text';
-        promptInput.placeholder = 'Enter your image description...';
+        promptInput.placeholder = 'A penguin in space';
         promptInput.style.margin = '10px 0';
         promptInput.style.padding = '10px';
         promptInput.style.width = '100%';
@@ -154,9 +178,15 @@ addImageButton(
 
             document.body.removeChild(overlay);
 
-            gptimage.generate(prompt).then(function(image) {
-                if (window.confirm("Resize canvas to fit ai image (1000x1000)")) setSize(1000, 1000);
-                addImage(prompt, image);
+            gptimage.generate(prompt).then(function(imageUrl) {
+                resizeImage(imageUrl, 200, 200)
+                    .then(resizedImage => {
+                        addImage(prompt, resizedImage);
+                    })
+                    .catch(error => {
+                        if (window.confirm("Resize canvas to fit ai image (1000x1000)")) setSize(1000, 1000);
+                        addImage(prompt, imageUrl);
+                    });                
             });
         });
 
