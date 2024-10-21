@@ -161,6 +161,11 @@ function extrabuttons() { document.title = newtitle;
     }
 }
 
+function fatalError(err) {
+    var error = `We had an unexpected fatal editor error!<br>${err}<br>Please restart Penguin Paint :(`;
+    document.body.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100vh;background-color:#fff;font-size:24px;color:#00c3ff;">${error}</div>`;
+}
+
 function openPaint() {
     // if (document.title.split(" - ")[1]) {
     //     document.title = document.title.split(" - ")[0] + newtitle;
@@ -216,6 +221,12 @@ function openPaint() {
     document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden').style.height = '100%';
     
     document.querySelector('#app > div > div > div.gui_page-wrapper_1cgy0.box_box_2jjDp > div.gui_body-wrapper_-N0sA.box_box_2jjDp.sa-stage-hidden > div > div.gui_stage-and-target-wrapper_69KBf.box_box_2jjDp > div.stage-wrapper_stage-wrapper_2bejr.box_box_2jjDp > div:nth-child(1) > div > div > div.stage-header_stage-size-row_14N65').style.display = 'none';
+    
+    setInterval(() => {
+        if (document.querySelector('#app > div > div.interface_menu_3K-Q2 > div > div.menu-bar_main-menu_3wjWH > div:nth-child(4) > span > div')) {
+            fatalError("Error: editor unloaded");
+        }
+    }, 1000);
     
     try {
         var img = document.querySelector('#react-tabs-3 > div > div.selector_wrapper_8_BHs.box_box_2jjDp > div.selector_new-buttons_2qHDd.box_box_2jjDp > div > button > img');
