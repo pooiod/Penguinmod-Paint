@@ -47,7 +47,7 @@ gptimage.generate = async function(prompt, model) {
     })
     .catch(error => {
       console.error("Image Generator Error: ", error.message);
-      return "https://dummyimage.com/400x200/fff/000&text=Error generating image: " + error.message;
+      return "https://dummyimage.com/300x300/fff/000&text=Error generating image: " + error.message;
     });
 }
 
@@ -63,7 +63,7 @@ async function resizeImage(url, width, height) {
             canvas.height = height;
 
             ctx.drawImage(img, 0, 0, width, height);
-            const resizedImage = canvas.toDataURL(); // Get the resized image as a data URL
+            const resizedImage = canvas.toDataURL();
             resolve(resizedImage);
         };
 
@@ -172,14 +172,13 @@ addImageButton(
         confirmButton.addEventListener('click', () => {
             const prompt = promptInput.value;
             if (!prompt) {
-                alert("Please enter a prompt for the image generation.");
-                return;
+                prompt = promptInput.placeholder;
             }
 
             document.body.removeChild(overlay);
 
             gptimage.generate(prompt).then(function(imageUrl) {
-                resizeImage(imageUrl, 200, 200)
+                resizeImage(imageUrl, 300, 300)
                     .then(resizedImage => {
                         addImage(prompt, resizedImage);
                     })
