@@ -119,7 +119,7 @@ setTimeout(() => {
 }, 1000); 
 
 function createCard(name, desc, credits, notice, scriptLink) {
-    const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(2)');
+    const container = document.querySelector('#app > div > div.settings_addons_2LLFF > div > div:nth-child(1) > div:nth-child(1)');
     if (!container) return;
 
     const cardId = `card_${encodeURIComponent(scriptLink)}`;
