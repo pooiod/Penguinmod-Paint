@@ -27,7 +27,7 @@ addImageButton(
 	  modal.style.padding = '30px';
 	  modal.style.borderRadius = '10px';
 	  modal.style.padding = '20px';
-	  modal.style.width = '100%';
+	  modal.style.width = '400px';
 	  modal.style.textAlign = 'center';
 	  
 	  wrapper.appendChild(modal);
