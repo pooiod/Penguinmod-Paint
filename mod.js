@@ -1,6 +1,9 @@
 var newtitle = "Penguin Paint";
 document.title = newtitle;
 
+window.stageWidth = 480;
+window.stageHeight = 360;
+
 function extrabuttons() { document.title = newtitle;
     var targetElement = document.querySelector('#react-tabs-3 > div > div.asset-panel_detail-area_2KQhH.box_box_2jjDp > div > div.paint-editor_top-align-row_25164 > div.paint-editor_controls-container_1Rqwy > div.paint-editor_canvas-controls_16wq3 > span');
 
@@ -232,6 +235,8 @@ history.replaceState = function(state, title, url) {
 
 window.setSize = function(width, height) {
     runWithScratch(`Scratch.vm.setStageSize(${width/2}, ${height/2})`);
+    window.stageWidth = width;
+    window.stageHeight = height;
 }
 
 window.addImage = function(name, url) {
@@ -498,6 +503,10 @@ const waitForElement = (selector) => {
                                 extrabuttons();
                                 if (!new URL(window.location.href).searchParams.get('size')) {
                                     setSize(640, 360);
+                                } else {
+                                    let size = new URL(window.location.href).searchParams.get('size').split('x');
+                                    window.stageWidth = size[0];
+                                    window.stageHeight = size[1];                                    
                                 }
                             } catch(err) {
                                 console.warn(err);
